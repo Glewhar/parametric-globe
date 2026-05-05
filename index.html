@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Earth Globe Builder</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <aside id="panel">
+    <header>
+      <h1>Earth Globe</h1>
+      <p class="subtle">BREP Bezier-on-sphere — region-aware</p>
+    </header>
+
+    <section id="layer-toggles" aria-label="Layer visibility">
+      <h2>Layers</h2>
+      <div id="continent-toggles"><!-- filled by app.js --></div>
+      <label class="toggle-row toggle-row--labels">
+        <input type="checkbox" id="toggle-labels" />
+        <span>Show region labels in 3D</span>
+      </label>
+    </section>
+  </aside>
+
+  <main id="viewer">
+    <div id="hover-tooltip" hidden></div>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

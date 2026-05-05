@@ -1,0 +1,24 @@
+{
+  "_comment": "Biome registry. 'order' matches the SVG <g> document order — required for outer/hole layering. Elevation is in mm above the base sphere radius; the slider min/max bound the UI; default is the initial value.",
+  "sphere": {
+    "radius_mm": 50.0,
+    "_comment": "Base sphere radius. All biome elevations are measured outward from this radius."
+  },
+  "biomes": [
+    {"id": "shallow_ocean", "label": "Shallow ocean",  "color": "#2f7fb8", "default_mm": 0.10, "min_mm": 0.0, "max_mm": 8.0, "order": 0},
+    {"id": "mid_ocean",     "label": "Mid ocean",      "color": "#16447a", "order": 1, "is_base": true},
+    {"id": "grassland",     "label": "Grassland",      "color": "#a5aa61", "default_mm": 0.60, "min_mm": 0.0, "max_mm": 12.0, "order": 2},
+    {"id": "light_forest",  "label": "Light forest",   "color": "#73975b", "default_mm": 0.60, "min_mm": 0.0, "max_mm": 12.0, "order": 3},
+    {"id": "snow",          "label": "Snow",           "color": "#c2d8c2", "default_mm": 1.50, "min_mm": 0.0, "max_mm": 12.0, "order": 4},
+    {"id": "forest",        "label": "Forest",         "color": "#5b853e", "default_mm": 0.90, "min_mm": 0.0, "max_mm": 12.0, "order": 5},
+    {"id": "grassland_2",   "label": "Grassland 2",    "color": "#b2c38f", "default_mm": 0.60, "min_mm": 0.0, "max_mm": 12.0, "order": 6},
+    {"id": "desert",        "label": "Desert",         "color": "#a88255", "default_mm": 0.90, "min_mm": 0.0, "max_mm": 12.0, "order": 7},
+    {"id": "steppe",        "label": "Steppe",         "color": "#b79e67", "default_mm": 0.60, "min_mm": 0.0, "max_mm": 12.0, "order": 8},
+    {"id": "forest_2",      "label": "Forest 2",       "color": "#48805d", "default_mm": 0.90, "min_mm": 0.0, "max_mm": 12.0, "order": 9},
+    {"id": "dark_forest",   "label": "Dark forest",    "color": "#286924", "default_mm": 0.90, "min_mm": 0.0, "max_mm": 12.0, "order": 10},
+    {"id": "alpine_meadow", "label": "Alpine meadow",  "color": "#6e9388", "default_mm": 0.90, "min_mm": 0.0, "max_mm": 12.0, "order": 11},
+    {"id": "savanna",       "label": "Savanna",        "color": "#806b40", "default_mm": 0.60, "min_mm": 0.0, "max_mm": 12.0, "order": 12},
+    {"id": "snow_2",        "label": "Snow 2",         "color": "#d7e7dc", "default_mm": 2.10, "min_mm": 0.0, "max_mm": 12.0, "order": 13},
+    {"id": "ice",           "label": "Ice",            "color": "#d9f0fb", "default_mm": 1.50, "min_mm": 0.0, "max_mm": 8.0,  "order": 14}
+  ]
+}
