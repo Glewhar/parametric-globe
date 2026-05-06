@@ -68,6 +68,40 @@ section h2 {
   overflow-y: auto;
 }
 
+#season-controls {
+  border-bottom: 1px solid var(--line);
+}
+
+.season-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+#season-month {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.2px;
+}
+
+#month-slider {
+  width: 100%;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.season-axis {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2px;
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
 #continent-toggles {
   display: flex;
   flex-direction: column;

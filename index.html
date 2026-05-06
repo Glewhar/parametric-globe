@@ -20,6 +20,17 @@
       <p class="subtle">BREP Bezier-on-sphere — region-aware</p>
     </header>
 
+    <section id="season-controls" aria-label="Seasonal colours">
+      <h2>Season</h2>
+      <div class="season-row">
+        <span id="season-month">May</span>
+      </div>
+      <input type="range" id="month-slider" min="1" max="12" step="1" value="5" />
+      <div class="season-axis" aria-hidden="true">
+        <span>Jan</span><span>Dec</span>
+      </div>
+    </section>
+
     <section id="layer-toggles" aria-label="Layer visibility">
       <h2>Layers</h2>
       <div id="continent-toggles"><!-- filled by app.js --></div>
@@ -34,6 +45,11 @@
     <div id="hover-tooltip" hidden></div>
   </main>
 
-  <script type="module" src="app.js"></script>
+  <script type="module">
+    // Force a fresh app.js per page load. The viewer is served by python's
+    // http.server which doesn't emit cache headers, so chrome aggressively
+    // reuses the previous module after a regenerate.bat run.
+    import('./app.js?v=' + Date.now());
+  </script>
 </body>
 </html>
