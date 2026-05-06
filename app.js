@@ -17,11 +17,20 @@ const $ = (sel) => document.querySelector(sel);
 const continentTogglesEl = $('#continent-toggles');
 const toggleLabels = $('#toggle-labels');
 const tooltipEl = $('#hover-tooltip');
-const monthSlider = $('#month-slider');
 const monthLabelEl = $('#season-month');
+const playerToggle = $('#player-toggle');
+const playerTrack = $('#player-track');
+const playerFill = $('#player-fill');
+const playerDots = $('#player-dots');
+const playerSection = $('#hud-top');
+const advancedDetails = $('#hud-advanced');
 
 const HIDDEN_KEY = 'hiddenContinents';
 const SHOW_LABELS_KEY = 'showLabels';
+const PLAYING_KEY = 'seasonPlaying';
+const MONTH_KEY = 'monthIndex';
+const ADVANCED_OPEN_KEY = 'advancedOpen';
+const MONTH_TICK_MS = 500;
 
 const MONTH_NAMES = [
   'January', 'February', 'March', 'April', 'May', 'June',
@@ -35,7 +44,7 @@ let labelLayer = null;
 let globeMesh = null;
 let R_globe = 50;
 
-const OCEAN_HEX = '#235e92';        // deep-water blue
+const OCEAN_HEX = '#1e507c';        // deep-water blue
 const BASE_SPHERE_NAMES = new Set(['__base_sphere__', 'ocean_sphere']);
 
 // Latitude-based "spotlight on the equator" effect: equatorial belt stays
@@ -425,25 +434,181 @@ function persistHidden() {
     JSON.stringify(Array.from(appState.hidden)));
 }
 
-// ---------------------------------------------------------------- season slider
+// ---------------------------------------------------------------- season player
+//
+// Auto-runs Jan→Dec at MONTH_TICK_MS per month, looping. Play/pause button
+// toggles state; clicking a track dot scrubs without changing play state.
+// State (current month + playing flag) persists in localStorage.
 
-function setupMonthSlider() {
-  if (!monthSlider) return;
-  const initial = appState.monthIndex + 1;
-  monthSlider.value = String(initial);
-  monthLabelEl.textContent = MONTH_NAMES[appState.monthIndex];
+function recolorAtCurrentMonth() {
+  if (!appState) return;
+  const m = appState.monthIndex;
+  monthLabelEl.textContent = MONTH_NAMES[m];
+  if (playerFill) playerFill.style.width = `${((m + 1) / 12) * 100}%`;
+  if (playerTrack) playerTrack.setAttribute('aria-valuenow', String(m + 1));
+  updateDotStates(m);
+  if (!appState.bodyColorTable) return;
+  for (const e of appState.bodyColorTable) {
+    e.mesh.material.color.set(e.colors[m]);
+  }
+}
+
+function updateDotStates(currentIdx) {
+  if (!playerDots) return;
+  for (const dot of playerDots.children) {
+    const i = Number(dot.dataset.idx);
+    let state = 'future';
+    if (i === currentIdx) state = 'current';
+    else if (i < currentIdx) state = 'past';
+    dot.dataset.state = state;
+  }
+}
+
+function buildPlayerDots() {
+  if (!playerDots) return;
+  playerDots.replaceChildren();
+  for (let i = 0; i < 12; i++) {
+    const tick = document.createElement('span');
+    tick.className = 'player-dot';
+    tick.dataset.idx = String(i);
+    tick.setAttribute('aria-hidden', 'true');
+    playerDots.appendChild(tick);
+  }
+}
+
+function monthFromTrackEvent(ev) {
+  const rect = playerTrack.getBoundingClientRect();
+  const x = (ev.clientX ?? 0) - rect.left;
+  const ratio = Math.max(0, Math.min(1, x / Math.max(1, rect.width)));
+  // 12 equal segments — round to nearest, clamp to 0..11
+  return Math.max(0, Math.min(11, Math.round(ratio * 11)));
+}
+
+function setMonth(m) {
+  if (!appState) return;
+  appState.monthIndex = m;
+  localStorage.setItem(MONTH_KEY, String(m));
+  recolorAtCurrentMonth();
+}
+
+function attachTrackScrub() {
+  if (!playerTrack) return;
+  let active = false;
+
+  const onPointerDown = (ev) => {
+    // Left mouse / primary touch only
+    if (ev.button !== undefined && ev.button !== 0) return;
+    active = true;
+    try { playerTrack.setPointerCapture(ev.pointerId); } catch {}
+    setMonth(monthFromTrackEvent(ev));
+    ev.preventDefault();
+  };
+  const onPointerMove = (ev) => {
+    if (!active) return;
+    setMonth(monthFromTrackEvent(ev));
+  };
+  const onPointerUp = (ev) => {
+    if (!active) return;
+    active = false;
+    try { playerTrack.releasePointerCapture(ev.pointerId); } catch {}
+  };
+
+  playerTrack.addEventListener('pointerdown', onPointerDown);
+  playerTrack.addEventListener('pointermove', onPointerMove);
+  playerTrack.addEventListener('pointerup', onPointerUp);
+  playerTrack.addEventListener('pointercancel', onPointerUp);
+
+  // Keyboard scrubbing (←/→) for accessibility.
+  playerTrack.addEventListener('keydown', (ev) => {
+    if (ev.key === 'ArrowLeft') {
+      setMonth((appState.monthIndex + 11) % 12);
+      ev.preventDefault();
+    } else if (ev.key === 'ArrowRight') {
+      setMonth((appState.monthIndex + 1) % 12);
+      ev.preventDefault();
+    }
+  });
+}
+
+function attachSpacebarToggle() {
+  document.addEventListener('keydown', (ev) => {
+    if (ev.code !== 'Space' && ev.key !== ' ') return;
+    // Don't hijack space inside text inputs / contenteditable surfaces
+    const t = ev.target;
+    if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) {
+      return;
+    }
+    if (!appState) return;
+    appState.playing = !appState.playing;
+    localStorage.setItem(PLAYING_KEY, appState.playing ? '1' : '0');
+    syncToggleVisual();
+    ev.preventDefault();
+  });
+}
+
+function setupSeasonPlayer() {
+  // Restore persisted state.
+  const storedMonth = localStorage.getItem(MONTH_KEY);
+  if (storedMonth !== null) {
+    const m = Math.max(0, Math.min(11, parseInt(storedMonth, 10) || 0));
+    appState.monthIndex = m;
+  }
+  appState.playing = localStorage.getItem(PLAYING_KEY) !== '0'; // default true
+
+  buildPlayerDots();
+  attachTrackScrub();
+  attachSpacebarToggle();
+  recolorAtCurrentMonth();
+  syncToggleVisual();
+
   if (!appState.seasons?.bodies) {
-    // No seasons artifact yet — disable the slider but keep it visible.
-    monthSlider.disabled = true;
+    // No seasons artifact — disable controls visually but keep layout.
+    if (playerToggle) playerToggle.disabled = true;
     return;
   }
-  monthSlider.addEventListener('input', (ev) => {
-    const m = Math.max(1, Math.min(12, +ev.target.value)) - 1;
-    appState.monthIndex = m;
-    monthLabelEl.textContent = MONTH_NAMES[m];
-    for (const e of appState.bodyColorTable) {
-      e.mesh.material.color.set(e.colors[m]);
+
+  // Play/pause button.
+  if (playerToggle) {
+    playerToggle.addEventListener('click', () => {
+      appState.playing = !appState.playing;
+      localStorage.setItem(PLAYING_KEY, appState.playing ? '1' : '0');
+      syncToggleVisual();
+    });
+  }
+
+  // rAF-driven tick.
+  let lastTick = performance.now();
+  function frame(now) {
+    if (appState.playing && now - lastTick >= MONTH_TICK_MS) {
+      appState.monthIndex = (appState.monthIndex + 1) % 12;
+      localStorage.setItem(MONTH_KEY, String(appState.monthIndex));
+      recolorAtCurrentMonth();
+      lastTick = now;
+    } else if (!appState.playing) {
+      // Reset baseline so resuming doesn't immediately fire a stale tick.
+      lastTick = now;
     }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+
+function syncToggleVisual() {
+  if (!playerToggle) return;
+  const playing = !!appState?.playing;
+  playerToggle.dataset.state = playing ? 'playing' : 'paused';
+  playerToggle.setAttribute('aria-label', playing ? 'Pause' : 'Play');
+  playerToggle.setAttribute('title', playing ? 'Pause (Space)' : 'Play (Space)');
+  if (playerSection) playerSection.dataset.state = playing ? 'playing' : 'paused';
+}
+
+function setupAdvancedDetails() {
+  if (!advancedDetails) return;
+  const open = localStorage.getItem(ADVANCED_OPEN_KEY) === '1';
+  advancedDetails.open = open;
+  advancedDetails.addEventListener('toggle', () => {
+    localStorage.setItem(ADVANCED_OPEN_KEY,
+      advancedDetails.open ? '1' : '0');
   });
 }
 
@@ -523,8 +688,18 @@ async function main() {
 
   appState = buildState(regions, biomeColors, seasons);
 
+  // Expose appState so optional side-car modules (scenarios.js) can read
+  // bodyColorTable. Read-only for them; never mutated by the core viewer.
+  // Also expose recolorAtCurrentMonth so scenarios.js can repaint after a
+  // scenario swap without duplicating recolor logic.
+  if (window.__viewer) {
+    window.__viewer.appState = appState;
+    window.__viewer.recolorAtCurrentMonth = recolorAtCurrentMonth;
+  }
+
   renderToggles();
-  setupMonthSlider();
+  setupSeasonPlayer();
+  setupAdvancedDetails();
 
   toggleLabels.checked = appState.showLabels;
   toggleLabels.addEventListener('change', () => {

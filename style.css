@@ -2,10 +2,29 @@
   --bg: #0c1118;
   --panel: #161c26;
   --panel-2: #1c2330;
-  --line: #283040;
-  --text: #d8e1ee;
-  --text-dim: #8c98ab;
-  --accent: #7cb6ff;
+  --line: rgba(255, 255, 255, 0.10);
+  --text: #e6eaf2;
+  --text-dim: rgba(230, 234, 242, 0.60);
+  --text-faint: rgba(230, 234, 242, 0.38);
+  /* Muted off-white accent — used where we still need a hint of color.
+     The active states themselves use translucent white fills, not this. */
+  --accent: rgba(230, 234, 242, 0.92);
+
+  --hud-bg: rgba(14, 20, 30, 0.55);
+  --hud-bg-strong: rgba(14, 20, 30, 0.72);
+  --hud-border: rgba(255, 255, 255, 0.10);
+  --hud-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  --radius: 10px;
+  --radius-lg: 14px;
+  --tap: 44px;
+
+  /* Slider season gradient. Loops Dec→Jan visually because the player loops. */
+  --season-gradient: linear-gradient(90deg,
+    #79a8d4 0%,    /* Jan: winter blue */
+    #88c08a 25%,   /* Apr: spring green */
+    #e9c466 50%,   /* Jul: summer yellow */
+    #c97a4f 75%,   /* Oct: autumn orange */
+    #79a8d4 100%); /* Dec: back to winter */
 }
 
 * { box-sizing: border-box; }
@@ -16,126 +35,291 @@ html, body {
   height: 100%;
   width: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, "Helvetica Neue", Arial, sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text);
   background: var(--bg);
   overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
-body {
-  display: grid;
-  grid-template-columns: 280px 1fr;
+#viewer {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 20%, #1a232f 0%, #07090d 75%);
 }
 
-#panel {
-  background: var(--panel);
-  border-right: 1px solid var(--line);
+#viewer canvas { display: block; }
+
+/* ---------------- HUD: shared surface look ---------------- */
+
+#hud-top,
+#hud {
+  background: var(--hud-bg);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid var(--hud-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--hud-shadow);
+  z-index: 5;
+}
+
+/* ---------------- Top player bar (decoupled) ---------------- */
+
+#hud-top {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(680px, calc(100vw - 32px));
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+}
+
+.player-btn {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--hud-border);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: background 140ms ease, transform 100ms ease,
+              border-color 140ms ease;
+  touch-action: manipulation;
+}
+
+.player-btn:hover  { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.20); }
+.player-btn:active { transform: scale(0.96); }
+.player-btn:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.55);
+  outline-offset: 2px;
+}
+
+.player-icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  display: none;
+}
+.player-btn[data-state="playing"] .player-icon--pause { display: block; }
+.player-btn[data-state="paused"]  .player-icon--play  { display: block; }
+
+.player-meta {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Month label: only visible when paused, fades in/out so it doesn't flicker
+   as the player auto-advances. The data-state lives on #hud-top, set by JS. */
+.player-month {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+  height: 16px;
+  opacity: 0;
+  transform: translateY(-2px);
+  transition: opacity 220ms ease, transform 220ms ease;
+  pointer-events: none;
+}
+
+#hud-top[data-state="paused"] .player-month {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.player-track {
+  position: relative;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.player-track:focus { outline: none; }
+.player-track:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.40);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+.player-track-bg {
+  position: absolute;
+  left: 0; right: 0;
+  top: 50%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.player-track-fill {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 6px;
+  background: var(--season-gradient);
+  background-size: 680px 100%;        /* gradient stretches across full year */
+  background-repeat: no-repeat;
+  border-radius: 6px;
+  transform: translateY(-50%);
+  width: 0;
+  transition: width 240ms ease;
+  pointer-events: none;
+  opacity: 0.92;
+}
+
+.player-dots {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+/* Dots are passive markers now — the whole track captures pointer events. */
+.player-dot {
+  position: relative;
+  z-index: 1;
+  width: 1px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.20);
+  border-radius: 1px;
+  flex: 0 0 auto;
+  transition: background 160ms ease, height 160ms ease;
+}
+
+.player-dot[data-state="past"]    { background: rgba(255, 255, 255, 0.35); }
+.player-dot[data-state="current"] {
+  height: 14px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.45);
+}
+
+.player-kbd {
+  flex: 0 0 auto;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--hud-border);
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  padding: 4px 8px;
+  user-select: none;
+}
+
+/* ---------------- Bottom HUD (scenarios + advanced) ---------------- */
+
+#hud {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  width: min(420px, calc(100vw - 48px));
+  max-height: calc(100vh - 160px);
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  font-size: 14px;
 }
 
-#panel header {
-  padding: 18px 20px 12px;
-  border-bottom: 1px solid var(--line);
+#hud > * + * {
+  border-top: 1px solid var(--hud-border);
 }
 
-#panel h1 {
-  margin: 0 0 2px;
-  font-size: 17px;
-  font-weight: 600;
-  letter-spacing: 0.2px;
-}
+/* ---------------- Advanced (collapsible) ---------------- */
 
-.subtle { color: var(--text-dim); margin: 0; font-size: 11px; }
+.hud-advanced { padding: 0; }
 
-section {
-  padding: 14px 20px;
-  flex-shrink: 0;
-}
-
-section h2 {
-  margin: 0 0 10px;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--text-dim);
-  font-weight: 600;
-}
-
-#layer-toggles {
-  flex: 1 1 auto;
-  overflow-y: auto;
-}
-
-#season-controls {
-  border-bottom: 1px solid var(--line);
-}
-
-.season-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 6px;
-}
-
-#season-month {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text);
-  letter-spacing: 0.2px;
-}
-
-#month-slider {
-  width: 100%;
-  accent-color: var(--accent);
+.hud-advanced > summary {
+  list-style: none;
   cursor: pointer;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-dim);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  user-select: none;
+  min-height: var(--tap);
+  touch-action: manipulation;
 }
 
-.season-axis {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 2px;
-  font-size: 10px;
+.hud-advanced > summary::-webkit-details-marker { display: none; }
+.hud-advanced > summary::marker { content: ""; }
+
+.hud-chevron {
+  width: 12px;
+  height: 12px;
   color: var(--text-dim);
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
+  transition: transform 200ms ease;
+  flex: 0 0 auto;
+}
+
+.hud-advanced[open] .hud-chevron { transform: rotate(90deg); }
+
+.hud-advanced-body {
+  padding: 4px 14px 14px;
+  max-height: 280px;
+  overflow-y: auto;
 }
 
 #continent-toggles {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  margin-bottom: 14px;
+  gap: 2px;
+  margin-bottom: 8px;
 }
 
 .toggle-row {
   display: flex;
-  gap: 8px;
+  gap: 12px;
   align-items: center;
-  font-size: 12px;
+  font-size: 13px;
   cursor: pointer;
   user-select: none;
-  padding: 3px 0;
+  padding: 8px 4px;
+  min-height: 36px;
+  touch-action: manipulation;
+  color: var(--text);
 }
 
 .toggle-row input[type=checkbox] {
   cursor: pointer;
-  accent-color: var(--accent);
+  accent-color: var(--text);
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
 }
 
 .toggle-row--labels {
-  margin-top: 8px;
-  padding-top: 10px;
-  border-top: 1px solid var(--line);
+  margin-top: 6px;
+  padding-top: 12px;
+  border-top: 1px solid var(--hud-border);
 }
-
-#viewer {
-  position: relative;
-  background: radial-gradient(ellipse at 30% 20%, #1a232f 0%, #07090d 75%);
-}
-
-#viewer canvas { display: block; }
 
 /* ---------------- 3D label overlay ---------------- */
 
@@ -160,12 +344,45 @@ section h2 {
   position: fixed;
   top: 0;
   left: 0;
-  padding: 3px 8px;
-  background: var(--panel-2);
-  border: 1px solid var(--line);
-  border-radius: 3px;
+  padding: 4px 9px;
+  background: var(--hud-bg-strong);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--hud-border);
+  border-radius: 6px;
   font-size: 12px;
   pointer-events: none;
   z-index: 10;
   color: var(--text);
+}
+
+/* ---------------- Mobile ---------------- */
+
+@media (max-width: 720px) {
+  #hud-top {
+    top: max(8px, env(safe-area-inset-top));
+    left: 8px;
+    right: 8px;
+    width: auto;
+    transform: none;
+    padding: 8px 10px;
+    gap: 10px;
+  }
+
+  .player-btn { width: 42px; height: 42px; }
+  .player-track { height: 28px; }
+  .player-kbd { display: none; } /* no keyboards on phones */
+
+  #hud {
+    left: 8px;
+    right: 8px;
+    bottom: max(8px, env(safe-area-inset-bottom));
+    width: auto;
+    max-height: 60vh;
+    border-radius: var(--radius-lg);
+  }
+
+  .hud-advanced > summary { padding: 12px 14px; }
+  .hud-advanced-body { padding: 4px 14px 14px; max-height: 240px; }
+  .toggle-row { padding: 10px 4px; min-height: 40px; }
 }

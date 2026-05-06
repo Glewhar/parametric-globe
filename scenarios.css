@@ -1,0 +1,102 @@
+/* Climate / disaster scenario picker — two-tier chip selector.
+   Side-car of the main viewer, hidden via [hidden] until scenarios.json loads. */
+
+.hud-scenarios {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.scenario-cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.scenario-intensities {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 2px;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 150ms ease, transform 150ms ease;
+}
+
+.scenario-intensities::-webkit-scrollbar { display: none; }
+
+.scenario-intensities:empty { display: none; }
+
+.scenario-intensities.is-swapping {
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+/* Chips: translucent surface, square-ish corners, monochrome on hover/select */
+.scenario-chip {
+  flex: 0 0 auto;
+  min-height: 36px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--hud-border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  scroll-snap-align: start;
+  touch-action: manipulation;
+  transition: background 140ms ease, border-color 140ms ease,
+              color 140ms ease, transform 100ms ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.scenario-chip:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.scenario-chip:active { transform: scale(0.97); }
+
+.scenario-chip:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.55);
+  outline-offset: 2px;
+}
+
+.scenario-chip[aria-selected="true"],
+.scenario-chip[aria-pressed="true"] {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Inline icons inside category chips. Tiny, monochrome, follow text color. */
+.scenario-chip .scenario-icon {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  color: var(--text-dim);
+  transition: color 140ms ease;
+}
+
+.scenario-chip[aria-selected="true"] .scenario-icon {
+  color: var(--text);
+}
+
+@media (max-width: 720px) {
+  .hud-scenarios { padding: 12px 12px; }
+  .scenario-chip {
+    min-height: 38px;
+    padding: 9px 12px;
+    font-size: 13px;
+  }
+}

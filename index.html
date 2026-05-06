@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Earth Globe Builder</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="scenarios.css" />
   <script type="importmap">
     {
       "imports": {
@@ -14,36 +16,63 @@
   </script>
 </head>
 <body>
-  <aside id="panel">
-    <header>
-      <h1>Earth Globe</h1>
-      <p class="subtle">BREP Bezier-on-sphere — region-aware</p>
-    </header>
-
-    <section id="season-controls" aria-label="Seasonal colours">
-      <h2>Season</h2>
-      <div class="season-row">
-        <span id="season-month">May</span>
-      </div>
-      <input type="range" id="month-slider" min="1" max="12" step="1" value="5" />
-      <div class="season-axis" aria-hidden="true">
-        <span>Jan</span><span>Dec</span>
-      </div>
-    </section>
-
-    <section id="layer-toggles" aria-label="Layer visibility">
-      <h2>Layers</h2>
-      <div id="continent-toggles"><!-- filled by app.js --></div>
-      <label class="toggle-row toggle-row--labels">
-        <input type="checkbox" id="toggle-labels" />
-        <span>Show region labels in 3D</span>
-      </label>
-    </section>
-  </aside>
-
   <main id="viewer">
     <div id="hover-tooltip" hidden></div>
   </main>
+
+  <section id="hud-top" class="hud-player" data-state="playing"
+           aria-label="Season playback">
+    <button id="player-toggle" class="player-btn" type="button"
+            aria-label="Pause" data-state="playing"
+            title="Pause (Space)">
+      <svg class="player-icon player-icon--play"  viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M8 5v14l11-7z"></path>
+      </svg>
+      <svg class="player-icon player-icon--pause" viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="6"  y="5" width="4" height="14" rx="1"></rect>
+        <rect x="14" y="5" width="4" height="14" rx="1"></rect>
+      </svg>
+    </button>
+    <div class="player-meta">
+      <div class="player-month" id="season-month" aria-live="polite">May</div>
+      <div class="player-track" id="player-track"
+           role="slider" aria-valuemin="1" aria-valuemax="12" aria-valuenow="5"
+           aria-label="Month" tabindex="0">
+        <div class="player-track-bg"></div>
+        <div class="player-track-fill" id="player-fill"></div>
+        <div class="player-dots" id="player-dots"></div>
+      </div>
+    </div>
+    <kbd class="player-kbd" aria-hidden="true">space</kbd>
+  </section>
+
+  <aside id="hud" aria-label="Globe controls">
+    <section id="scenario-controls" class="hud-scenarios"
+             aria-label="Climate scenarios" hidden>
+      <div class="scenario-cats" id="scenario-cats" role="tablist"></div>
+      <div class="scenario-intensities" id="scenario-intensities"></div>
+    </section>
+    <script type="module">
+      import('./scenarios.js?v=' + Date.now());
+    </script>
+
+    <details class="hud-advanced" id="hud-advanced">
+      <summary>
+        <svg class="hud-chevron" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Advanced
+      </summary>
+      <div class="hud-advanced-body">
+        <div id="continent-toggles"><!-- filled by app.js --></div>
+        <label class="toggle-row toggle-row--labels">
+          <input type="checkbox" id="toggle-labels" />
+          <span>Show region labels in 3D</span>
+        </label>
+      </div>
+    </details>
+  </aside>
 
   <script type="module">
     // Force a fresh app.js per page load. The viewer is served by python's

@@ -6,7 +6,7 @@
   },
   "biomes": [
     {"id": "mid_ocean",        "label": "Mid ocean",         "color": "#347aac", "order": 0,  "is_base": true, "dropped": true,  "terrain_class": "dropped_deep_water",   "rank": 0},
-    {"id": "shallow_ocean",    "label": "Shallow ocean",     "color": "#3587aa", "default_mm": 0.05, "min_mm": 0.0, "max_mm": 8.0,  "order": 1,  "terrain_class": "water_shallow",        "rank": 1},
+    {"id": "shallow_ocean",    "label": "Shallow ocean",     "color": "#3279ae", "default_mm": 0.05, "min_mm": 0.0, "max_mm": 8.0,  "order": 1,  "terrain_class": "water_shallow",        "rank": 1},
     {"id": "light_forest",     "label": "Light forest",      "color": "#789b4a", "default_mm": 0.85, "min_mm": 0.0, "max_mm": 12.0, "order": 2,  "terrain_class": "midland_forest_low",   "rank": 8},
     {"id": "light_forest_2",   "label": "Light forest 2",    "color": "#6d9557", "default_mm": 1.15, "min_mm": 0.0, "max_mm": 12.0, "order": 3,  "terrain_class": "midland_forest_mid",   "rank": 10},
     {"id": "forest",           "label": "Forest",            "color": "#397932", "default_mm": 1.85, "min_mm": 0.0, "max_mm": 12.0, "order": 4,  "terrain_class": "highland_forest",      "rank": 14},
