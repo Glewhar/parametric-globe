@@ -232,7 +232,8 @@ function initScene() {
   scene.add(fillLight.target);
 
   // Expose for debugging / scripted screenshots.
-  window.__viewer = { THREE, scene, camera, controls, renderer, sunLight, fillLight };
+  window.__viewer = { THREE, scene, camera, controls, renderer, sunLight, fillLight,
+    setAtmosphereStyle };
 
   function applyViewerSize() {
     const w = viewer.clientWidth, h = viewer.clientHeight;
@@ -251,6 +252,8 @@ function initScene() {
     controls.update();
     updateSunPosition();
     updateLabelVisibility();
+    const atmoUniforms = window.__viewer?.atmosphere?.material?.uniforms;
+    if (atmoUniforms) atmoUniforms.uTime.value = performance.now() * 0.001;
     renderer.render(scene, camera);
     labelRenderer.render(scene, camera);
   }
@@ -317,9 +320,18 @@ function addAtmosphere(R) {
     transparent: true,
     depthWrite: false,
     uniforms: {
-      uColor: { value: new THREE.Color(0x6aa3ff) },
-      uIntensity: { value: 0.35 },
-      uPower: { value: 3.0 },
+      uColor:        { value: new THREE.Color(0x6aa3ff) },
+      uIntensity:    { value: 0.35 },
+      uPower:        { value: 3.0 },
+      // Sparkle: high-frequency twinkle in the rim, modulated by time.
+      // 0 = none (default). Used by fungus tiers for spore-cloud effect.
+      uSparkle:      { value: 0.0 },
+      uSparkleColor: { value: new THREE.Color(0xffffff) },
+      // Rainbow: 0..1 strength of position-driven hue cycling across the rim.
+      // When > 0, the atmosphere reads as a slowly drifting rainbow band
+      // wrapping the planet — used by fungus tiers for an alien aurora look.
+      uRainbow:      { value: 0.0 },
+      uTime:         { value: 0.0 },
     },
     vertexShader: `
       varying vec3 vNormal;
@@ -332,16 +344,59 @@ function addAtmosphere(R) {
       }
     `,
     fragmentShader: `
-      uniform vec3 uColor;
+      uniform vec3  uColor;
       uniform float uIntensity;
       uniform float uPower;
+      uniform float uSparkle;
+      uniform vec3  uSparkleColor;
+      uniform float uRainbow;
+      uniform float uTime;
       varying vec3 vNormal;
       varying vec3 vWorldPos;
+      // Cheap hash → float in [0,1].
+      float hash3(vec3 p) {
+        p = fract(p * 0.1031);
+        p += dot(p, p.yzx + 33.33);
+        return fract((p.x + p.y) * p.z);
+      }
+      // HSV(h ∈ [0,1], 1, 1) → RGB. Cheap; no branches.
+      vec3 hue(float h) {
+        return clamp(abs(fract(h + vec3(0.0, 2.0/3.0, 1.0/3.0)) * 6.0 - 3.0) - 1.0,
+                     0.0, 1.0);
+      }
       void main() {
         // BackSide → vNormal points inward; flip for view-facing dot.
         vec3 viewDir = normalize(cameraPosition - vWorldPos);
         float fres = pow(1.0 - abs(dot(viewDir, normalize(-vNormal))), uPower);
-        gl_FragColor = vec4(uColor * fres * uIntensity, fres);
+        vec3 baseCol = uColor;
+        if (uRainbow > 0.0) {
+          // Position-driven hue cycling: longitude is the primary axis, with
+          // a latitude shift, so the rainbow wraps the planet. Slow time
+          // drift gives a gentle aurora animation. Multiple bands via *3.0.
+          vec3 nrm = normalize(vWorldPos);
+          float h = atan(nrm.z, nrm.x) / 6.2831853;
+          h = fract(h * 3.0 + nrm.y * 0.6 + uTime * 0.04);
+          vec3 rb = hue(h);
+          // Mix the base atmosphere color with the rainbow palette by
+          // uRainbow strength, then re-saturate slightly so it pops.
+          baseCol = mix(uColor, rb * 1.05, uRainbow);
+        }
+        vec3 col = baseCol * fres * uIntensity;
+        float a = fres;
+        if (uSparkle > 0.0) {
+          // Quantize world position into a fine grid; slow-cycle each cell
+          // with a phase from its hash. Sparser + dimmer than before so the
+          // rim reads as faint twinkle rather than a TV-static dazzle.
+          vec3 cell = floor(normalize(vWorldPos) * 180.0);
+          float h2 = hash3(cell);
+          float phase = uTime * 1.4 + h2 * 6.2831853;
+          float tw = 0.5 + 0.5 * sin(phase);
+          float pop = pow(tw, 9.0) * step(0.78, h2);
+          float s = pop * uSparkle * fres * 0.9;
+          col += uSparkleColor * s;
+          a   += s * 0.4;
+        }
+        gl_FragColor = vec4(col, a);
       }
     `,
   });
@@ -349,6 +404,23 @@ function addAtmosphere(R) {
   mesh.renderOrder = 1; // draw after the globe so the additive blend reads right
   scene.add(mesh);
   if (window.__viewer) window.__viewer.atmosphere = mesh;
+}
+
+// Apply an atmosphere style. style fields are optional; missing ones revert to
+// defaults so callers can pass a sparse object.
+function setAtmosphereStyle(style) {
+  const a = window.__viewer?.atmosphere;
+  if (!a) return;
+  const u = a.material.uniforms;
+  const s = style || {};
+  if (s.color != null) u.uColor.value.set(s.color);
+  else u.uColor.value.set(0x6aa3ff);
+  u.uIntensity.value = s.intensity != null ? s.intensity : 0.35;
+  u.uPower.value     = s.power     != null ? s.power     : 3.0;
+  u.uSparkle.value   = s.sparkle   != null ? s.sparkle   : 0.0;
+  u.uRainbow.value   = s.rainbow   != null ? s.rainbow   : 0.0;
+  if (s.sparkleColor != null) u.uSparkleColor.value.set(s.sparkleColor);
+  else u.uSparkleColor.value.set(0xffffff);
 }
 
 // --------------- starfield ---------------
@@ -430,6 +502,15 @@ function loadGlobe() {
               o.geometry.computeVertexNormals();
             }
             o.userData.isBaseSphere = true;
+            // Register under the canonical key '__base_sphere__' so scenarios.js
+            // can swap colors regardless of the actual mesh name in the GLB.
+            // Default colors are constant OCEAN_HEX; scenarios.json overrides
+            // these on scenario apply via __base_sphere__ entry.
+            o.name = '__base_sphere__';
+            appState.bodyColorTable.push({
+              mesh: o,
+              colors: new Array(12).fill(OCEAN_HEX),
+            });
             return;
           }
           const region = appState.bodyToRegion.get(o.name);

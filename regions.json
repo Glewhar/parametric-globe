@@ -1,9 +1,9 @@
 {
   "svg_sha256": "47b047d5c1352292276ec42c36c5fa3928186550f6bef9e2d02a0651557b8a94",
-  "generated_utc": "2026-05-06T21:23:14+00:00",
+  "generated_utc": "2026-05-07T08:31:30+00:00",
   "n_bodies": 927,
   "n_continents": 8,
-  "n_regions": 148,
+  "n_regions": 139,
   "stats": {
     "atlas_hits": 927,
     "misses": 0,
@@ -6699,260 +6699,6 @@
           ]
         },
         {
-          "id": "boreal_forest_na",
-          "parent_id": null,
-          "name": "North American boreal forest",
-          "kind": "forest",
-          "latitude_zone": "north",
-          "is_water": false,
-          "centroid_lonlat": [
-            -111.8322,
-            57.4602
-          ],
-          "bodies": [
-            {
-              "biome_id": "tundra",
-              "region_idx": 26,
-              "elevation_mm": 2.4071,
-              "centroid_lonlat": [
-                -138.5127,
-                60.0
-              ],
-              "name": "North American boreal forest 1"
-            },
-            {
-              "biome_id": "forest_2",
-              "region_idx": 42,
-              "elevation_mm": 2.3412,
-              "centroid_lonlat": [
-                -116.3641,
-                51.8664
-              ],
-              "name": "North American boreal forest 2"
-            },
-            {
-              "biome_id": "forest_2",
-              "region_idx": 10,
-              "elevation_mm": 2.2533,
-              "centroid_lonlat": [
-                -123.1556,
-                57.6632
-              ],
-              "name": "North American boreal forest 3"
-            },
-            {
-              "biome_id": "barren",
-              "region_idx": 7,
-              "elevation_mm": 2.2094,
-              "centroid_lonlat": [
-                -117.8584,
-                49.3241
-              ],
-              "name": "North American boreal forest 4"
-            },
-            {
-              "biome_id": "alpine_meadow_5",
-              "region_idx": 7,
-              "elevation_mm": 2.1435,
-              "centroid_lonlat": [
-                -136.4114,
-                60.4429
-              ],
-              "name": "North American boreal forest 5"
-            },
-            {
-              "biome_id": "barren",
-              "region_idx": 1,
-              "elevation_mm": 2.1325,
-              "centroid_lonlat": [
-                -130.0253,
-                61.4055
-              ],
-              "name": "North American boreal forest 6"
-            },
-            {
-              "biome_id": "forest_2",
-              "region_idx": 41,
-              "elevation_mm": 2.0886,
-              "centroid_lonlat": [
-                -118.6378,
-                53.8512
-              ],
-              "name": "North American boreal forest 7"
-            },
-            {
-              "biome_id": "light_forest_5",
-              "region_idx": 3,
-              "elevation_mm": 1.7592,
-              "centroid_lonlat": [
-                -111.9377,
-                55.433
-              ],
-              "name": "North American boreal forest 8"
-            },
-            {
-              "biome_id": "alpine_meadow_5",
-              "region_idx": 5,
-              "elevation_mm": 1.7373,
-              "centroid_lonlat": [
-                -129.6402,
-                64.4933
-              ],
-              "name": "North American boreal forest 9"
-            },
-            {
-              "biome_id": "light_forest_5",
-              "region_idx": 45,
-              "elevation_mm": 1.4957,
-              "centroid_lonlat": [
-                -118.8442,
-                58.6033
-              ],
-              "name": "North American boreal forest 10"
-            },
-            {
-              "biome_id": "light_forest_5",
-              "region_idx": 46,
-              "elevation_mm": 1.4518,
-              "centroid_lonlat": [
-                -104.0392,
-                56.8499
-              ],
-              "name": "North American boreal forest 11"
-            },
-            {
-              "biome_id": "light_forest_5",
-              "region_idx": 6,
-              "elevation_mm": 1.32,
-              "centroid_lonlat": [
-                -103.6358,
-                53.8445
-              ],
-              "name": "North American boreal forest 12"
-            },
-            {
-              "biome_id": "light_forest_2",
-              "region_idx": 73,
-              "elevation_mm": 1.2541,
-              "centroid_lonlat": [
-                -92.283,
-                49.6976
-              ],
-              "name": "North American boreal forest 13"
-            },
-            {
-              "biome_id": "alpine_meadow_2",
-              "region_idx": 5,
-              "elevation_mm": 1.1992,
-              "centroid_lonlat": [
-                -104.1005,
-                61.7107
-              ],
-              "name": "North American boreal forest 15"
-            },
-            {
-              "biome_id": "light_forest_2",
-              "region_idx": 7,
-              "elevation_mm": 1.1992,
-              "centroid_lonlat": [
-                -105.2584,
-                56.7921
-              ],
-              "name": "North American boreal forest 14"
-            },
-            {
-              "biome_id": "light_forest_5",
-              "region_idx": 8,
-              "elevation_mm": 1.1553,
-              "centroid_lonlat": [
-                -92.9455,
-                50.3735
-              ],
-              "name": "North American boreal forest 16"
-            },
-            {
-              "biome_id": "light_forest_5",
-              "region_idx": 48,
-              "elevation_mm": 1.1443,
-              "centroid_lonlat": [
-                -100.5223,
-                54.9581
-              ],
-              "name": "North American boreal forest 17"
-            },
-            {
-              "biome_id": "light_forest_3",
-              "region_idx": 9,
-              "elevation_mm": 1.0345,
-              "centroid_lonlat": [
-                -120.7575,
-                63.6877
-              ],
-              "name": "North American boreal forest 18"
-            },
-            {
-              "biome_id": "light_forest_3",
-              "region_idx": 8,
-              "elevation_mm": 1.0125,
-              "centroid_lonlat": [
-                -115.5661,
-                63.1532
-              ],
-              "name": "North American boreal forest 19"
-            },
-            {
-              "biome_id": "alpine_meadow_3",
-              "region_idx": 12,
-              "elevation_mm": 0.8588,
-              "centroid_lonlat": [
-                -132.0898,
-                54.155
-              ],
-              "name": "North American boreal forest 20"
-            },
-            {
-              "biome_id": "light_forest_3",
-              "region_idx": 10,
-              "elevation_mm": 0.7929,
-              "centroid_lonlat": [
-                -93.5617,
-                56.3269
-              ],
-              "name": "North American boreal forest 21"
-            },
-            {
-              "biome_id": "ice",
-              "region_idx": 11,
-              "elevation_mm": 0.5953,
-              "centroid_lonlat": [
-                -92.8522,
-                62.7869
-              ],
-              "name": "North American boreal forest 22"
-            },
-            {
-              "biome_id": "tundra_2",
-              "region_idx": 41,
-              "elevation_mm": 0.4745,
-              "centroid_lonlat": [
-                -91.2861,
-                62.8919
-              ],
-              "name": "North American boreal forest 23"
-            },
-            {
-              "biome_id": "alpine_meadow_3",
-              "region_idx": 52,
-              "elevation_mm": 0.4416,
-              "centroid_lonlat": [
-                -93.6884,
-                58.7331
-              ],
-              "name": "North American boreal forest 24"
-            }
-          ]
-        },
-        {
           "id": "north_america_interior",
           "parent_id": null,
           "name": "North American interior",
@@ -7183,6 +6929,210 @@
                 45.4331
               ],
               "name": "North American interior 22"
+            }
+          ]
+        },
+        {
+          "id": "canadian_shield",
+          "parent_id": null,
+          "name": "Canadian Shield",
+          "kind": "forest",
+          "latitude_zone": "north",
+          "is_water": false,
+          "centroid_lonlat": [
+            -90.2559,
+            56.6407
+          ],
+          "bodies": [
+            {
+              "biome_id": "light_forest_5",
+              "region_idx": 46,
+              "elevation_mm": 1.4518,
+              "centroid_lonlat": [
+                -104.0392,
+                56.8499
+              ],
+              "name": "Canadian Shield 1"
+            },
+            {
+              "biome_id": "light_forest_5",
+              "region_idx": 6,
+              "elevation_mm": 1.32,
+              "centroid_lonlat": [
+                -103.6358,
+                53.8445
+              ],
+              "name": "Canadian Shield 2"
+            },
+            {
+              "biome_id": "light_forest_2",
+              "region_idx": 73,
+              "elevation_mm": 1.2541,
+              "centroid_lonlat": [
+                -92.283,
+                49.6976
+              ],
+              "name": "Canadian Shield 3"
+            },
+            {
+              "biome_id": "alpine_meadow_2",
+              "region_idx": 5,
+              "elevation_mm": 1.1992,
+              "centroid_lonlat": [
+                -104.1005,
+                61.7107
+              ],
+              "name": "Canadian Shield 5"
+            },
+            {
+              "biome_id": "light_forest_2",
+              "region_idx": 7,
+              "elevation_mm": 1.1992,
+              "centroid_lonlat": [
+                -105.2584,
+                56.7921
+              ],
+              "name": "Canadian Shield 4"
+            },
+            {
+              "biome_id": "light_forest_4",
+              "region_idx": 14,
+              "elevation_mm": 1.1553,
+              "centroid_lonlat": [
+                -86.8399,
+                49.6062
+              ],
+              "name": "Canadian Shield 7"
+            },
+            {
+              "biome_id": "light_forest_5",
+              "region_idx": 8,
+              "elevation_mm": 1.1553,
+              "centroid_lonlat": [
+                -92.9455,
+                50.3735
+              ],
+              "name": "Canadian Shield 6"
+            },
+            {
+              "biome_id": "light_forest_5",
+              "region_idx": 48,
+              "elevation_mm": 1.1443,
+              "centroid_lonlat": [
+                -100.5223,
+                54.9581
+              ],
+              "name": "Canadian Shield 8"
+            },
+            {
+              "biome_id": "light_forest_3",
+              "region_idx": 10,
+              "elevation_mm": 0.7929,
+              "centroid_lonlat": [
+                -93.5617,
+                56.3269
+              ],
+              "name": "Canadian Shield 9"
+            },
+            {
+              "biome_id": "ice",
+              "region_idx": 11,
+              "elevation_mm": 0.5953,
+              "centroid_lonlat": [
+                -92.8522,
+                62.7869
+              ],
+              "name": "Canadian Shield 10"
+            },
+            {
+              "biome_id": "alpine_meadow_3",
+              "region_idx": 9,
+              "elevation_mm": 0.5624,
+              "centroid_lonlat": [
+                -75.9954,
+                56.785
+              ],
+              "name": "Canadian Shield 11"
+            },
+            {
+              "biome_id": "alpine_meadow_2",
+              "region_idx": 13,
+              "elevation_mm": 0.5514,
+              "centroid_lonlat": [
+                -82.5012,
+                53.1426
+              ],
+              "name": "Canadian Shield 12"
+            },
+            {
+              "biome_id": "tundra_2",
+              "region_idx": 41,
+              "elevation_mm": 0.4745,
+              "centroid_lonlat": [
+                -91.2861,
+                62.8919
+              ],
+              "name": "Canadian Shield 13"
+            },
+            {
+              "biome_id": "tundra_2",
+              "region_idx": 106,
+              "elevation_mm": 0.4745,
+              "centroid_lonlat": [
+                -75.9723,
+                64.8258
+              ],
+              "name": "Canadian Shield 14"
+            },
+            {
+              "biome_id": "alpine_meadow_3",
+              "region_idx": 52,
+              "elevation_mm": 0.4416,
+              "centroid_lonlat": [
+                -93.6884,
+                58.7331
+              ],
+              "name": "Canadian Shield 15"
+            },
+            {
+              "biome_id": "tundra_2",
+              "region_idx": 42,
+              "elevation_mm": 0.4086,
+              "centroid_lonlat": [
+                -76.6362,
+                61.2576
+              ],
+              "name": "Canadian Shield 16"
+            },
+            {
+              "biome_id": "alpine_meadow_2",
+              "region_idx": 31,
+              "elevation_mm": 0.3427,
+              "centroid_lonlat": [
+                -87.0027,
+                55.6619
+              ],
+              "name": "Canadian Shield 17"
+            },
+            {
+              "biome_id": "tundra_2",
+              "region_idx": 109,
+              "elevation_mm": 0.3318,
+              "centroid_lonlat": [
+                -76.5712,
+                58.703
+              ],
+              "name": "Canadian Shield 18"
+            },
+            {
+              "biome_id": "alpine_meadow_3",
+              "region_idx": 15,
+              "elevation_mm": 0.3208,
+              "centroid_lonlat": [
+                -79.1704,
+                51.2253
+              ],
+              "name": "Canadian Shield 19"
             }
           ]
         },
@@ -7515,6 +7465,150 @@
           ]
         },
         {
+          "id": "boreal_forest_na",
+          "parent_id": null,
+          "name": "North American boreal forest",
+          "kind": "forest",
+          "latitude_zone": "north",
+          "is_water": false,
+          "centroid_lonlat": [
+            -123.8308,
+            58.0061
+          ],
+          "bodies": [
+            {
+              "biome_id": "tundra",
+              "region_idx": 26,
+              "elevation_mm": 2.4071,
+              "centroid_lonlat": [
+                -138.5127,
+                60.0
+              ],
+              "name": "North American boreal forest 1"
+            },
+            {
+              "biome_id": "forest_2",
+              "region_idx": 42,
+              "elevation_mm": 2.3412,
+              "centroid_lonlat": [
+                -116.3641,
+                51.8664
+              ],
+              "name": "North American boreal forest 2"
+            },
+            {
+              "biome_id": "forest_2",
+              "region_idx": 10,
+              "elevation_mm": 2.2533,
+              "centroid_lonlat": [
+                -123.1556,
+                57.6632
+              ],
+              "name": "North American boreal forest 3"
+            },
+            {
+              "biome_id": "barren",
+              "region_idx": 7,
+              "elevation_mm": 2.2094,
+              "centroid_lonlat": [
+                -117.8584,
+                49.3241
+              ],
+              "name": "North American boreal forest 4"
+            },
+            {
+              "biome_id": "alpine_meadow_5",
+              "region_idx": 7,
+              "elevation_mm": 2.1435,
+              "centroid_lonlat": [
+                -136.4114,
+                60.4429
+              ],
+              "name": "North American boreal forest 5"
+            },
+            {
+              "biome_id": "barren",
+              "region_idx": 1,
+              "elevation_mm": 2.1325,
+              "centroid_lonlat": [
+                -130.0253,
+                61.4055
+              ],
+              "name": "North American boreal forest 6"
+            },
+            {
+              "biome_id": "forest_2",
+              "region_idx": 41,
+              "elevation_mm": 2.0886,
+              "centroid_lonlat": [
+                -118.6378,
+                53.8512
+              ],
+              "name": "North American boreal forest 7"
+            },
+            {
+              "biome_id": "light_forest_5",
+              "region_idx": 3,
+              "elevation_mm": 1.7592,
+              "centroid_lonlat": [
+                -111.9377,
+                55.433
+              ],
+              "name": "North American boreal forest 8"
+            },
+            {
+              "biome_id": "alpine_meadow_5",
+              "region_idx": 5,
+              "elevation_mm": 1.7373,
+              "centroid_lonlat": [
+                -129.6402,
+                64.4933
+              ],
+              "name": "North American boreal forest 9"
+            },
+            {
+              "biome_id": "light_forest_5",
+              "region_idx": 45,
+              "elevation_mm": 1.4957,
+              "centroid_lonlat": [
+                -118.8442,
+                58.6033
+              ],
+              "name": "North American boreal forest 10"
+            },
+            {
+              "biome_id": "light_forest_3",
+              "region_idx": 9,
+              "elevation_mm": 1.0345,
+              "centroid_lonlat": [
+                -120.7575,
+                63.6877
+              ],
+              "name": "North American boreal forest 11"
+            },
+            {
+              "biome_id": "light_forest_3",
+              "region_idx": 8,
+              "elevation_mm": 1.0125,
+              "centroid_lonlat": [
+                -115.5661,
+                63.1532
+              ],
+              "name": "North American boreal forest 12"
+            },
+            {
+              "biome_id": "alpine_meadow_3",
+              "region_idx": 12,
+              "elevation_mm": 0.8588,
+              "centroid_lonlat": [
+                -132.0898,
+                54.155
+              ],
+              "name": "North American boreal forest 13"
+            }
+          ]
+        },
+        {
           "id": "mexican_plateau",
           "parent_id": null,
           "name": "Mexican plateau",
@@ -7709,100 +7803,6 @@
                 26.5509
               ],
               "name": "Baja California 8"
-            }
-          ]
-        },
-        {
-          "id": "canadian_shield",
-          "parent_id": null,
-          "name": "Canadian Shield",
-          "kind": "forest",
-          "latitude_zone": "north",
-          "is_water": false,
-          "centroid_lonlat": [
-            -80.0862,
-            56.4009
-          ],
-          "bodies": [
-            {
-              "biome_id": "light_forest_4",
-              "region_idx": 14,
-              "elevation_mm": 1.1553,
-              "centroid_lonlat": [
-                -86.8399,
-                49.6062
-              ],
-              "name": "Canadian Shield 1"
-            },
-            {
-              "biome_id": "alpine_meadow_3",
-              "region_idx": 9,
-              "elevation_mm": 0.5624,
-              "centroid_lonlat": [
-                -75.9954,
-                56.785
-              ],
-              "name": "Canadian Shield 2"
-            },
-            {
-              "biome_id": "alpine_meadow_2",
-              "region_idx": 13,
-              "elevation_mm": 0.5514,
-              "centroid_lonlat": [
-                -82.5012,
-                53.1426
-              ],
-              "name": "Canadian Shield 3"
-            },
-            {
-              "biome_id": "tundra_2",
-              "region_idx": 106,
-              "elevation_mm": 0.4745,
-              "centroid_lonlat": [
-                -75.9723,
-                64.8258
-              ],
-              "name": "Canadian Shield 4"
-            },
-            {
-              "biome_id": "tundra_2",
-              "region_idx": 42,
-              "elevation_mm": 0.4086,
-              "centroid_lonlat": [
-                -76.6362,
-                61.2576
-              ],
-              "name": "Canadian Shield 5"
-            },
-            {
-              "biome_id": "alpine_meadow_2",
-              "region_idx": 31,
-              "elevation_mm": 0.3427,
-              "centroid_lonlat": [
-                -87.0027,
-                55.6619
-              ],
-              "name": "Canadian Shield 6"
-            },
-            {
-              "biome_id": "tundra_2",
-              "region_idx": 109,
-              "elevation_mm": 0.3318,
-              "centroid_lonlat": [
-                -76.5712,
-                58.703
-              ],
-              "name": "Canadian Shield 7"
-            },
-            {
-              "biome_id": "alpine_meadow_3",
-              "region_idx": 15,
-              "elevation_mm": 0.3208,
-              "centroid_lonlat": [
-                -79.1704,
-                51.2253
-              ],
-              "name": "Canadian Shield 8"
             }
           ]
         },
@@ -10695,377 +10695,15 @@
       "name": "Water",
       "regions": [
         {
-          "id": "ocean_indian",
+          "id": "shallow_ocean",
           "parent_id": null,
-          "name": "Indian Ocean",
-          "kind": "deep_ocean",
-          "latitude_zone": "tropical",
+          "name": "Shallow ocean",
+          "kind": "shallow_water",
+          "latitude_zone": "temperate",
           "is_water": true,
           "centroid_lonlat": [
-            56.8568,
-            -8.3546
-          ],
-          "bodies": [
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 19,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                54.1434,
-                25.7468
-              ],
-              "name": "Indian Ocean 8"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 20,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                40.0082,
-                19.6839
-              ],
-              "name": "Indian Ocean 2"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 21,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                43.8535,
-                -10.8386
-              ],
-              "name": "Indian Ocean 4"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 22,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                96.622,
-                8.5278
-              ],
-              "name": "Indian Ocean 14"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 24,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                34.1671,
-                -1.7512
-              ],
-              "name": "Indian Ocean 1"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 33,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                43.9245,
-                13.295
-              ],
-              "name": "Indian Ocean 5"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 39,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                57.8795,
-                -5.7571
-              ],
-              "name": "Indian Ocean 9"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 40,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                73.7659,
-                -6.7106
-              ],
-              "name": "Indian Ocean 12"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 41,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                62.4185,
-                -13.2682
-              ],
-              "name": "Indian Ocean 10"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 42,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                48.5156,
-                -9.9399
-              ],
-              "name": "Indian Ocean 6"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 43,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                52.4074,
-                -10.3363
-              ],
-              "name": "Indian Ocean 7"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 49,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                41.3084,
-                -22.2291
-              ],
-              "name": "Indian Ocean 3"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 50,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                71.785,
-                -49.3734
-              ],
-              "name": "Indian Ocean 11"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 53,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                75.1965,
-                -54.014
-              ],
-              "name": "Indian Ocean 13"
-            }
-          ]
-        },
-        {
-          "id": "ocean_arctic",
-          "parent_id": null,
-          "name": "Arctic Ocean",
-          "kind": "deep_ocean",
-          "latitude_zone": "arctic",
-          "is_water": true,
-          "centroid_lonlat": [
-            -83.0074,
-            67.904
-          ],
-          "bodies": [
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 0,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                -75.3684,
-                67.54
-              ],
-              "name": "Arctic Ocean 9"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 2,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                -88.8325,
-                70.643
-              ],
-              "name": "Arctic Ocean 7"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 3,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                -24.4012,
-                70.7467
-              ],
-              "name": "Arctic Ocean 10"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 4,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                -94.4294,
-                68.6454
-              ],
-              "name": "Arctic Ocean 6"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 5,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                -108.8454,
-                67.9549
-              ],
-              "name": "Arctic Ocean 5"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 6,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                -118.4108,
-                65.8684
-              ],
-              "name": "Arctic Ocean 2"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 7,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                -122.1037,
-                65.4167
-              ],
-              "name": "Arctic Ocean 1"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 10,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                -113.9361,
-                61.3823
-              ],
-              "name": "Arctic Ocean 3"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 11,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                32.613,
-                60.6004
-              ],
-              "name": "Arctic Ocean 11"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 35,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                -86.4811,
-                80.1457
-              ],
-              "name": "Arctic Ocean 8"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 36,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                -112.8856,
-                68.0004
-              ],
-              "name": "Arctic Ocean 4"
-            }
-          ]
-        },
-        {
-          "id": "ocean_pacific_west_south",
-          "parent_id": "ocean_pacific",
-          "name": "Western Pacific (south)",
-          "kind": "deep_ocean",
-          "latitude_zone": "south",
-          "is_water": true,
-          "centroid_lonlat": [
-            162.815,
-            -30.0806
-          ],
-          "bodies": [
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 26,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                156.7026,
-                -32.1353
-              ],
-              "name": "Western Pacific (south) 3"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 27,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                140.2812,
-                -37.8256
-              ],
-              "name": "Western Pacific (south) 1"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 28,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                175.0631,
-                -46.9142
-              ],
-              "name": "Western Pacific (south) 6"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 29,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                155.0565,
-                -35.2104
-              ],
-              "name": "Western Pacific (south) 2"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 44,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                170.3133,
-                -19.1542
-              ],
-              "name": "Western Pacific (south) 5"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 45,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                179.5103,
-                -18.6064
-              ],
-              "name": "Western Pacific (south) 7"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 46,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                162.7777,
-                -20.7181
-              ],
-              "name": "Western Pacific (south) 4"
-            }
-          ]
-        },
-        {
-          "id": "ocean_other",
-          "parent_id": null,
-          "name": "Open ocean",
-          "kind": "deep_ocean",
-          "latitude_zone": "tropical",
-          "is_water": true,
-          "centroid_lonlat": [
-            40.2004,
-            44.1181
+            13.264,
+            12.0525
           ],
           "bodies": [
             {
@@ -11076,62 +10714,8 @@
                 36.7468,
                 35.3354
               ],
-              "name": "Open ocean 3"
+              "name": "Shallow ocean 29"
             },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 9,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                20.4091,
-                58.3273
-              ],
-              "name": "Open ocean 1"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 15,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                36.245,
-                42.6198
-              ],
-              "name": "Open ocean 2"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 17,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                52.3237,
-                43.9276
-              ],
-              "name": "Open ocean 4"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 18,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                55.2773,
-                40.3802
-              ],
-              "name": "Open ocean 5"
-            }
-          ]
-        },
-        {
-          "id": "ocean_pacific_west_north",
-          "parent_id": "ocean_pacific",
-          "name": "Western Pacific (north)",
-          "kind": "deep_ocean",
-          "latitude_zone": "north",
-          "is_water": true,
-          "centroid_lonlat": [
-            136.1528,
-            28.3703
-          ],
-          "bodies": [
             {
               "biome_id": "alpine_meadow_3",
               "region_idx": 32,
@@ -11140,7 +10724,87 @@
                 126.5557,
                 11.8015
               ],
-              "name": "Western Pacific (north) 2"
+              "name": "Shallow ocean 47"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 0,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                -75.3684,
+                67.54
+              ],
+              "name": "Shallow ocean 16"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 1,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                -54.3329,
+                37.7101
+              ],
+              "name": "Shallow ocean 17"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 2,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                -88.8325,
+                70.643
+              ],
+              "name": "Shallow ocean 12"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 3,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                -24.4012,
+                70.7467
+              ],
+              "name": "Shallow ocean 21"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 4,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                -94.4294,
+                68.6454
+              ],
+              "name": "Shallow ocean 11"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 5,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                -108.8454,
+                67.9549
+              ],
+              "name": "Shallow ocean 10"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 6,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                -118.4108,
+                65.8684
+              ],
+              "name": "Shallow ocean 7"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 7,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                -122.1037,
+                65.4167
+              ],
+              "name": "Shallow ocean 6"
             },
             {
               "biome_id": "shallow_ocean",
@@ -11150,7 +10814,37 @@
                 135.6834,
                 11.4092
               ],
-              "name": "Western Pacific (north) 4"
+              "name": "Shallow ocean 49"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 9,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                20.4091,
+                58.3273
+              ],
+              "name": "Shallow ocean 25"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 10,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                -113.9361,
+                61.3823
+              ],
+              "name": "Shallow ocean 8"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 11,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                32.613,
+                60.6004
+              ],
+              "name": "Shallow ocean 26"
             },
             {
               "biome_id": "shallow_ocean",
@@ -11160,150 +10854,8 @@
                 111.226,
                 53.657
               ],
-              "name": "Western Pacific (north) 1"
+              "name": "Shallow ocean 46"
             },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 23,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                127.5623,
-                12.7642
-              ],
-              "name": "Western Pacific (north) 3"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 37,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                179.7364,
-                52.2198
-              ],
-              "name": "Western Pacific (north) 5"
-            }
-          ]
-        },
-        {
-          "id": "ocean_atlantic_north",
-          "parent_id": "ocean_atlantic",
-          "name": "North Atlantic Ocean",
-          "kind": "deep_ocean",
-          "latitude_zone": "north",
-          "is_water": true,
-          "centroid_lonlat": [
-            -11.2239,
-            36.3784
-          ],
-          "bodies": [
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 1,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                -54.3329,
-                37.7101
-              ],
-              "name": "North Atlantic Ocean 1"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 16,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                17.3024,
-                37.0779
-              ],
-              "name": "North Atlantic Ocean 4"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 32,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                -4.7461,
-                35.4206
-              ],
-              "name": "North Atlantic Ocean 2"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 34,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                -3.1188,
-                35.3049
-              ],
-              "name": "North Atlantic Ocean 3"
-            }
-          ]
-        },
-        {
-          "id": "ocean_pacific_south",
-          "parent_id": "ocean_pacific",
-          "name": "South Pacific Ocean",
-          "kind": "deep_ocean",
-          "latitude_zone": "south",
-          "is_water": true,
-          "centroid_lonlat": [
-            -177.5584,
-            -33.5734
-          ],
-          "bodies": [
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 25,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                -178.7024,
-                -18.9954
-              ],
-              "name": "South Pacific Ocean 2"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 30,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                -177.1523,
-                -44.5045
-              ],
-              "name": "South Pacific Ocean 3"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 48,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                -174.9025,
-                -22.2291
-              ],
-              "name": "South Pacific Ocean 4"
-            },
-            {
-              "biome_id": "shallow_ocean",
-              "region_idx": 51,
-              "elevation_mm": 0.05,
-              "centroid_lonlat": [
-                -179.4762,
-                -48.5645
-              ],
-              "name": "South Pacific Ocean 1"
-            }
-          ]
-        },
-        {
-          "id": "ocean_pacific_north",
-          "parent_id": "ocean_pacific",
-          "name": "North Pacific Ocean",
-          "kind": "deep_ocean",
-          "latitude_zone": "north",
-          "is_water": true,
-          "centroid_lonlat": [
-            -107.9991,
-            36.7002
-          ],
-          "bodies": [
             {
               "biome_id": "shallow_ocean",
               "region_idx": 13,
@@ -11312,7 +10864,7 @@
                 -86.6574,
                 45.639
               ],
-              "name": "North Pacific Ocean 2"
+              "name": "Shallow ocean 13"
             },
             {
               "biome_id": "shallow_ocean",
@@ -11322,7 +10874,237 @@
                 -81.1075,
                 44.6053
               ],
-              "name": "North Pacific Ocean 3"
+              "name": "Shallow ocean 15"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 15,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                36.245,
+                42.6198
+              ],
+              "name": "Shallow ocean 28"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 16,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                17.3024,
+                37.0779
+              ],
+              "name": "Shallow ocean 24"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 17,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                52.3237,
+                43.9276
+              ],
+              "name": "Shallow ocean 36"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 18,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                55.2773,
+                40.3802
+              ],
+              "name": "Shallow ocean 39"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 19,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                54.1434,
+                25.7468
+              ],
+              "name": "Shallow ocean 38"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 20,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                40.0082,
+                19.6839
+              ],
+              "name": "Shallow ocean 30"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 21,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                43.8535,
+                -10.8386
+              ],
+              "name": "Shallow ocean 32"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 22,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                96.622,
+                8.5278
+              ],
+              "name": "Shallow ocean 45"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 23,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                127.5623,
+                12.7642
+              ],
+              "name": "Shallow ocean 48"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 24,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                34.1671,
+                -1.7512
+              ],
+              "name": "Shallow ocean 27"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 25,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                -178.7024,
+                -18.9954
+              ],
+              "name": "Shallow ocean 2"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 26,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                156.7026,
+                -32.1353
+              ],
+              "name": "Shallow ocean 52"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 27,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                140.2812,
+                -37.8256
+              ],
+              "name": "Shallow ocean 50"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 28,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                175.0631,
+                -46.9142
+              ],
+              "name": "Shallow ocean 55"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 29,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                155.0565,
+                -35.2104
+              ],
+              "name": "Shallow ocean 51"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 30,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                -177.1523,
+                -44.5045
+              ],
+              "name": "Shallow ocean 3"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 31,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                49.3073,
+                -80.2739
+              ],
+              "name": "Shallow ocean 35"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 32,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                -4.7461,
+                35.4206
+              ],
+              "name": "Shallow ocean 22"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 33,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                43.9245,
+                13.295
+              ],
+              "name": "Shallow ocean 33"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 34,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                -3.1188,
+                35.3049
+              ],
+              "name": "Shallow ocean 23"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 35,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                -86.4811,
+                80.1457
+              ],
+              "name": "Shallow ocean 14"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 36,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                -112.8856,
+                68.0004
+              ],
+              "name": "Shallow ocean 9"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 37,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                179.7364,
+                52.2198
+              ],
+              "name": "Shallow ocean 57"
             },
             {
               "biome_id": "shallow_ocean",
@@ -11332,22 +11114,88 @@
                 -156.2323,
                 19.8562
               ],
-              "name": "North Pacific Ocean 1"
-            }
-          ]
-        },
-        {
-          "id": "ocean_atlantic_south",
-          "parent_id": "ocean_atlantic",
-          "name": "South Atlantic Ocean",
-          "kind": "deep_ocean",
-          "latitude_zone": "south",
-          "is_water": true,
-          "centroid_lonlat": [
-            -37.5318,
-            -36.9754
-          ],
-          "bodies": [
+              "name": "Shallow ocean 5"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 39,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                57.8795,
+                -5.7571
+              ],
+              "name": "Shallow ocean 40"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 40,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                73.7659,
+                -6.7106
+              ],
+              "name": "Shallow ocean 43"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 41,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                62.4185,
+                -13.2682
+              ],
+              "name": "Shallow ocean 41"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 42,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                48.5156,
+                -9.9399
+              ],
+              "name": "Shallow ocean 34"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 43,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                52.4074,
+                -10.3363
+              ],
+              "name": "Shallow ocean 37"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 44,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                170.3133,
+                -19.1542
+              ],
+              "name": "Shallow ocean 54"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 45,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                179.5103,
+                -18.6064
+              ],
+              "name": "Shallow ocean 56"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 46,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                162.7777,
+                -20.7181
+              ],
+              "name": "Shallow ocean 53"
+            },
             {
               "biome_id": "shallow_ocean",
               "region_idx": 47,
@@ -11356,7 +11204,47 @@
                 -35.3321,
                 -20.7836
               ],
-              "name": "South Atlantic Ocean 2"
+              "name": "Shallow ocean 20"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 48,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                -174.9025,
+                -22.2291
+              ],
+              "name": "Shallow ocean 4"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 49,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                41.3084,
+                -22.2291
+              ],
+              "name": "Shallow ocean 31"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 50,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                71.785,
+                -49.3734
+              ],
+              "name": "Shallow ocean 42"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 51,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                -179.4762,
+                -48.5645
+              ],
+              "name": "Shallow ocean 1"
             },
             {
               "biome_id": "shallow_ocean",
@@ -11366,31 +11254,17 @@
                 -39.7315,
                 -53.1672
               ],
-              "name": "South Atlantic Ocean 1"
-            }
-          ]
-        },
-        {
-          "id": "ocean_southern",
-          "parent_id": null,
-          "name": "Southern Ocean",
-          "kind": "deep_ocean",
-          "latitude_zone": "antarctic",
-          "is_water": true,
-          "centroid_lonlat": [
-            2.9266,
-            -71.1179
-          ],
-          "bodies": [
+              "name": "Shallow ocean 19"
+            },
             {
               "biome_id": "shallow_ocean",
-              "region_idx": 31,
+              "region_idx": 53,
               "elevation_mm": 0.05,
               "centroid_lonlat": [
-                49.3073,
-                -80.2739
+                75.1965,
+                -54.014
               ],
-              "name": "Southern Ocean 2"
+              "name": "Shallow ocean 44"
             },
             {
               "biome_id": "shallow_ocean",
@@ -11400,7 +11274,7 @@
                 -43.454,
                 -61.9618
               ],
-              "name": "Southern Ocean 1"
+              "name": "Shallow ocean 18"
             }
           ]
         }
