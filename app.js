@@ -310,7 +310,7 @@ const loader = new GLTFLoader();
 // Fresnel term in the fragment shader. depthWrite is off so it never occludes
 // the globe; AdditiveBlending so the night side still gets a soft hint.
 function addAtmosphere(R) {
-  const geom = new THREE.SphereGeometry(R * 1.025, 64, 32);
+  const geom = new THREE.SphereGeometry(R * 1.08, 64, 32);
   const mat = new THREE.ShaderMaterial({
     side: THREE.BackSide,
     blending: THREE.AdditiveBlending,
@@ -318,7 +318,7 @@ function addAtmosphere(R) {
     depthWrite: false,
     uniforms: {
       uColor: { value: new THREE.Color(0x6aa3ff) },
-      uIntensity: { value: 1.4 },
+      uIntensity: { value: 0.35 },
       uPower: { value: 3.0 },
     },
     vertexShader: `
