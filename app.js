@@ -12,6 +12,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
 const $ = (sel) => document.querySelector(sel);
 const continentTogglesEl = $('#continent-toggles');
@@ -52,9 +53,13 @@ const BASE_SPHERE_NAMES = new Set(['__base_sphere__', 'ocean_sphere']);
 // Tweak live: __viewer.scene.traverse(o => { const s = o.material?.userData?.shader;
 //             if (s) s.uniforms.uPolarFloor.value = 0.05; });
 const LATITUDE_LIGHT = {
-  polarFloor: 0.40,
+  polarFloor: 0.45,
   falloffPow: 1.5,
 };
+
+// Earth's axial tilt; the sun's apparent latitude vs the equator follows a
+// cosine of monthIndex with this amplitude.
+const AXIAL_TILT_DEG = 23.5;
 
 function patchLatitudeShading(material, sphereRadius) {
   material.onBeforeCompile = (shader) => {
@@ -166,20 +171,33 @@ function buildState(regionsCfg, biomeColors, seasons) {
 
 // ---------------------------------------------------------------- 3D scene
 
+let sunLight = null;
+let fillLight = null;
+
 function initScene() {
   const viewer = $('#viewer');
   scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x0c1118);
+  // Background lives on #viewer (CSS radial gradient) plus a starfield mesh
+  // added in addStarfield(); the scene itself stays transparent.
+  scene.background = null;
 
   const aspect = viewer.clientWidth / viewer.clientHeight;
   camera = new THREE.PerspectiveCamera(38, aspect, 0.5, 5000);
   camera.position.set(140, 80, 140);
 
-  renderer = new THREE.WebGLRenderer({ antialias: true });
-  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.setSize(viewer.clientWidth, viewer.clientHeight);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.05;
+  renderer.setClearColor(0x000000, 0);
   viewer.appendChild(renderer.domElement);
+
+  // PBR environment probe — RoomEnvironment is a procedural studio scene that
+  // PMREM bakes into a mip chain. No external HDRI download; ~20 ms init.
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
 
   labelRenderer = new CSS2DRenderer();
   labelRenderer.setSize(viewer.clientWidth, viewer.clientHeight);
@@ -194,20 +212,27 @@ function initScene() {
   controls.dampingFactor = 0.08;
   controls.target.set(0, 0, 0);
 
-  // Expose for debugging / scripted screenshots.
-  window.__viewer = { THREE, scene, camera, controls, renderer };
-
-  // Sun that follows the camera so the side facing the viewer is always
-  // brightest. Low hemisphere/ambient sharpens the limb falloff.
-  const hemiLight = new THREE.HemisphereLight(0xcadcef, 0x141923, 0.16);
+  // Two-light rig: warm key (camera-locked + tilted by season) and a cool
+  // fill on the night side so the unlit hemisphere reads as shadowed Earth
+  // rather than a void. Hemisphere light gives a subtle sky/ground bounce;
+  // the env probe replaces what AmbientLight used to do.
+  const hemiLight = new THREE.HemisphereLight(0xcadcef, 0x141923, 0.30);
   scene.add(hemiLight);
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.05);
-  scene.add(ambientLight);
-  const sunLight = new THREE.DirectionalLight(0xfff5d8, 1.55);
+
+  sunLight = new THREE.DirectionalLight(0xffe6b8, 2.6);
   sunLight.position.copy(camera.position);
   sunLight.target.position.set(0, 0, 0);
   scene.add(sunLight);
   scene.add(sunLight.target);
+
+  fillLight = new THREE.DirectionalLight(0x8aa6cc, 0.45);
+  fillLight.position.copy(camera.position).negate();
+  fillLight.target.position.set(0, 0, 0);
+  scene.add(fillLight);
+  scene.add(fillLight.target);
+
+  // Expose for debugging / scripted screenshots.
+  window.__viewer = { THREE, scene, camera, controls, renderer, sunLight, fillLight };
 
   function applyViewerSize() {
     const w = viewer.clientWidth, h = viewer.clientHeight;
@@ -224,12 +249,44 @@ function initScene() {
   function tick() {
     requestAnimationFrame(tick);
     controls.update();
-    sunLight.position.copy(camera.position);
+    updateSunPosition();
     updateLabelVisibility();
     renderer.render(scene, camera);
     labelRenderer.render(scene, camera);
   }
   tick();
+}
+
+// --------------- seasonal sun tilt (camera-locked + axial tilt) ---------------
+
+const _sunCamDir = new THREE.Vector3();
+const _sunAxis = new THREE.Vector3();
+const _sunUp = new THREE.Vector3(0, 1, 0);
+const _sunFallbackAxis = new THREE.Vector3(1, 0, 0);
+
+function updateSunPosition() {
+  if (!sunLight) return;
+  const dist = camera.position.length();
+  _sunCamDir.copy(camera.position).normalize();
+
+  // axis perpendicular to (camDir, worldUp) — rotation around it by a positive
+  // angle tilts camDir toward +Y (north pole), regardless of camera orbit.
+  _sunAxis.crossVectors(_sunCamDir, _sunUp);
+  if (_sunAxis.lengthSq() < 1e-6) {
+    _sunAxis.copy(_sunFallbackAxis);
+  } else {
+    _sunAxis.normalize();
+  }
+
+  // monthIndex 0 = January (~mid winter NH); cos(π * (m+0.5)/6) is +1 in Jan
+  // and −1 in Jul. Multiply by −AXIAL_TILT_DEG so Jan biases the sun south.
+  const m = appState ? appState.monthIndex : 4;
+  const tiltRad = THREE.MathUtils.degToRad(-AXIAL_TILT_DEG)
+                * Math.cos((m + 0.5) * Math.PI / 6);
+
+  _sunCamDir.applyAxisAngle(_sunAxis, tiltRad).multiplyScalar(dist);
+  sunLight.position.copy(_sunCamDir);
+  if (fillLight) fillLight.position.copy(_sunCamDir).negate();
 }
 
 // ---------------- lon/lat → cartesian (CAD frame +Z = north) ----------------
@@ -246,6 +303,92 @@ function lonLatDegToXYZ(lonDeg, latDeg, R) {
 // ---------------------------------------------------------------- GLB load
 
 const loader = new GLTFLoader();
+
+// --------------- atmosphere rim (back-faced sphere, additive Fresnel) ---------------
+//
+// Subtle blue glow at the limb. Cheap: ~6 k tris, no per-frame work, just a
+// Fresnel term in the fragment shader. depthWrite is off so it never occludes
+// the globe; AdditiveBlending so the night side still gets a soft hint.
+function addAtmosphere(R) {
+  const geom = new THREE.SphereGeometry(R * 1.025, 64, 32);
+  const mat = new THREE.ShaderMaterial({
+    side: THREE.BackSide,
+    blending: THREE.AdditiveBlending,
+    transparent: true,
+    depthWrite: false,
+    uniforms: {
+      uColor: { value: new THREE.Color(0x6aa3ff) },
+      uIntensity: { value: 1.4 },
+      uPower: { value: 3.0 },
+    },
+    vertexShader: `
+      varying vec3 vNormal;
+      varying vec3 vWorldPos;
+      void main() {
+        vNormal = normalize(normalMatrix * normal);
+        vec4 wp = modelMatrix * vec4(position, 1.0);
+        vWorldPos = wp.xyz;
+        gl_Position = projectionMatrix * viewMatrix * wp;
+      }
+    `,
+    fragmentShader: `
+      uniform vec3 uColor;
+      uniform float uIntensity;
+      uniform float uPower;
+      varying vec3 vNormal;
+      varying vec3 vWorldPos;
+      void main() {
+        // BackSide → vNormal points inward; flip for view-facing dot.
+        vec3 viewDir = normalize(cameraPosition - vWorldPos);
+        float fres = pow(1.0 - abs(dot(viewDir, normalize(-vNormal))), uPower);
+        gl_FragColor = vec4(uColor * fres * uIntensity, fres);
+      }
+    `,
+  });
+  const mesh = new THREE.Mesh(geom, mat);
+  mesh.renderOrder = 1; // draw after the globe so the additive blend reads right
+  scene.add(mesh);
+  if (window.__viewer) window.__viewer.atmosphere = mesh;
+}
+
+// --------------- starfield ---------------
+//
+// ~600 points scattered on a large sphere. sizeAttenuation off so stars stay
+// crisp regardless of camera distance.
+function addStarfield(R) {
+  const N = 600;
+  const radius = R * 18;
+  const positions = new Float32Array(N * 3);
+  for (let i = 0; i < N; i++) {
+    // uniform on sphere via Marsaglia
+    let u, v, s;
+    do {
+      u = Math.random() * 2 - 1;
+      v = Math.random() * 2 - 1;
+      s = u * u + v * v;
+    } while (s >= 1);
+    const f = 2 * Math.sqrt(1 - s);
+    const x = u * f;
+    const y = v * f;
+    const z = 1 - 2 * s;
+    positions[i * 3 + 0] = x * radius;
+    positions[i * 3 + 1] = y * radius;
+    positions[i * 3 + 2] = z * radius;
+  }
+  const geom = new THREE.BufferGeometry();
+  geom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  const mat = new THREE.PointsMaterial({
+    size: 1.2,
+    sizeAttenuation: false,
+    color: 0xffffff,
+    transparent: true,
+    opacity: 0.7,
+    depthWrite: false,
+  });
+  const stars = new THREE.Points(geom, mat);
+  scene.add(stars);
+  if (window.__viewer) window.__viewer.stars = stars;
+}
 
 function colorForBody(meshName, body) {
   // Per-month colour from seasons.json wins; fall back to biomes.json so a
@@ -276,8 +419,9 @@ function loadGlobe() {
           if (BASE_SPHERE_NAMES.has(o.name)) {
             o.material = new THREE.MeshStandardMaterial({
               color: new THREE.Color(OCEAN_HEX),
-              roughness: 0.7,
+              roughness: 0.55,
               metalness: 0.0,
+              envMapIntensity: 0.6,
               side: THREE.FrontSide,
               flatShading: false,
             });
@@ -293,8 +437,9 @@ function loadGlobe() {
           const hex = colorForBody(o.name, body);
           o.material = new THREE.MeshStandardMaterial({
             color: new THREE.Color(hex),
-            roughness: 0.85,
+            roughness: 0.78,
             metalness: 0.0,
+            envMapIntensity: 0.5,
             side: THREE.DoubleSide,
             flatShading: false,
           });
@@ -326,6 +471,9 @@ function loadGlobe() {
       root.rotation.x = -Math.PI / 2;
       scene.add(root);
       globeMesh = root;
+
+      addAtmosphere(R_globe);
+      addStarfield(R_globe);
 
       rebuildLabels();
       applyVisibility();
