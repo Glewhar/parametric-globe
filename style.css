@@ -213,20 +213,35 @@ html, body {
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.45);
 }
 
-.player-kbd {
+.player-hint {
   flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+}
+
+.player-kbd {
   font: inherit;
-  font-size: 10px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 700;
   letter-spacing: 0.6px;
   text-transform: uppercase;
-  color: var(--text-faint);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--hud-border);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-bottom-width: 2px;
   border-radius: 6px;
-  padding: 4px 8px;
-  user-select: none;
+  padding: 5px 11px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.player-hint-text {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  color: var(--text-dim);
+  white-space: nowrap;
 }
 
 /* ---------------- Bottom HUD (scenarios + advanced) ---------------- */
@@ -308,11 +323,44 @@ html, body {
 }
 
 .toggle-row input[type=checkbox] {
+  -webkit-appearance: none;
+  appearance: none;
   cursor: pointer;
-  accent-color: var(--text);
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   flex: 0 0 auto;
+  margin: 0;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  position: relative;
+  transition: background 140ms ease, border-color 140ms ease;
+}
+
+.toggle-row input[type=checkbox]:hover {
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.toggle-row input[type=checkbox]:checked {
+  background: var(--text);
+  border-color: var(--text);
+}
+
+.toggle-row input[type=checkbox]:checked::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0;
+  width: 5px;
+  height: 10px;
+  border: solid var(--bg);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.toggle-row input[type=checkbox]:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.55);
+  outline-offset: 2px;
 }
 
 .toggle-row--labels {
@@ -369,9 +417,10 @@ html, body {
     gap: 10px;
   }
 
-  .player-btn { width: 42px; height: 42px; }
+  .player-btn { width: 52px; height: 52px; border-radius: 12px; }
+  .player-btn .player-icon { width: 22px; height: 22px; }
   .player-track { height: 28px; }
-  .player-kbd { display: none; } /* no keyboards on phones */
+  .player-hint { display: none; } /* no keyboards on phones */
 
   #hud {
     left: 8px;

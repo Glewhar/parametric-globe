@@ -20,11 +20,11 @@
     <div id="hover-tooltip" hidden></div>
   </main>
 
-  <section id="hud-top" class="hud-player" data-state="playing"
+  <section id="hud-top" class="hud-player" data-state="paused"
            aria-label="Season playback">
     <button id="player-toggle" class="player-btn" type="button"
-            aria-label="Pause" data-state="playing"
-            title="Pause (Space)">
+            aria-label="Play" data-state="paused"
+            title="Play (Space)">
       <svg class="player-icon player-icon--play"  viewBox="0 0 24 24" aria-hidden="true">
         <path d="M8 5v14l11-7z"></path>
       </svg>
@@ -43,7 +43,10 @@
         <div class="player-dots" id="player-dots"></div>
       </div>
     </div>
-    <kbd class="player-kbd" aria-hidden="true">space</kbd>
+    <span class="player-hint" aria-hidden="true">
+      <kbd class="player-kbd">Space</kbd>
+      <span class="player-hint-text">play / pause</span>
+    </span>
   </section>
 
   <aside id="hud" aria-label="Globe controls">

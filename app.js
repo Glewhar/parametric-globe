@@ -160,7 +160,7 @@ function buildState(regionsCfg, biomeColors, seasons) {
     monthIndex,
     bodyColorTable: [],
     hidden,
-    showLabels: localStorage.getItem(SHOW_LABELS_KEY) !== '0',
+    showLabels: localStorage.getItem(SHOW_LABELS_KEY) === '1',
   };
 }
 
@@ -553,7 +553,7 @@ function setupSeasonPlayer() {
     const m = Math.max(0, Math.min(11, parseInt(storedMonth, 10) || 0));
     appState.monthIndex = m;
   }
-  appState.playing = localStorage.getItem(PLAYING_KEY) !== '0'; // default true
+  appState.playing = localStorage.getItem(PLAYING_KEY) === '1'; // default false (paused)
 
   buildPlayerDots();
   attachTrackScrub();
