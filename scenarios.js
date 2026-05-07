@@ -4,8 +4,6 @@
 // window.__viewer, then fetches scenarios.json and renders a category
 // chip row + intensity chip row inside #scenario-controls.
 
-const SCENARIO_KEY = 'scenarioId';
-
 // Tiny monochrome SVG icons (currentColor) — drawn in 24×24 viewBox.
 const ICONS = {
   // Earth-ish ring + small dot for "normal"
@@ -246,12 +244,10 @@ async function init() {
     return;
   }
 
-  const validIds = new Set((scenarios.scenarios || []).map((s) => s.id));
-  const stored = localStorage.getItem(SCENARIO_KEY);
-  let currentOptionId = (stored && validIds.has(stored)) ? stored : 'default';
-  let currentCatId = OPTION_TO_CAT.get(currentOptionId) || 'normal';
+  let currentOptionId = 'default';
+  let currentCatId = 'normal';
   // Remember last-picked option per category so returning to a category
-  // restores the user's previous intensity choice.
+  // (within this session) restores the user's previous intensity choice.
   const lastByCat = new Map();
   lastByCat.set(currentCatId, currentOptionId);
 
@@ -332,7 +328,6 @@ async function init() {
     currentCatId = catId;
     currentOptionId = optionId;
     lastByCat.set(catId, optionId);
-    localStorage.setItem(SCENARIO_KEY, optionId);
     // Update aria states without re-rendering everything.
     for (const c of catsEl.children) {
       c.setAttribute('aria-selected', c.dataset.cat === catId ? 'true' : 'false');
@@ -364,9 +359,6 @@ async function init() {
   renderCats();
   renderIntensities();
   showPicker();
-
-  // Apply the restored scenario on load (no-op if 'default').
-  if (currentOptionId !== 'default') applyScenario(currentOptionId);
 }
 
 init();

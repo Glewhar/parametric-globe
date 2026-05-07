@@ -5,8 +5,8 @@
 // plus regions.json, biomes.json, and seasons.json. The slider reads per-body
 // per-month hex colours from seasons.json and updates each mesh's
 // MeshStandardMaterial.color on every `input` event (live recolour while
-// dragging). May is preselected to match the master SVG. Hidden continents
-// and label visibility are persisted in localStorage.
+// dragging). UI state (month, play/pause, hidden continents, etc.) is NOT
+// persisted — every page load starts from clean defaults.
 
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -26,11 +26,6 @@ const playerDots = $('#player-dots');
 const playerSection = $('#hud-top');
 const advancedDetails = $('#hud-advanced');
 
-const HIDDEN_KEY = 'hiddenContinents';
-const SHOW_LABELS_KEY = 'showLabels';
-const PLAYING_KEY = 'seasonPlaying';
-const MONTH_KEY = 'monthIndex';
-const ADVANCED_OPEN_KEY = 'advancedOpen';
 const MONTH_TICK_MS = 500;
 
 const MONTH_NAMES = [
@@ -144,13 +139,6 @@ function buildState(regionsCfg, biomeColors, seasons) {
     });
   }
 
-  let hidden;
-  try {
-    hidden = new Set(JSON.parse(localStorage.getItem(HIDDEN_KEY) || '[]'));
-  } catch {
-    hidden = new Set();
-  }
-
   // Default month index follows the build's master_month so picking a month
   // in regenerate.bat carries through to the viewer. Falls back to May (4)
   // if seasons.json is missing the field or names an unknown month.
@@ -170,8 +158,8 @@ function buildState(regionsCfg, biomeColors, seasons) {
     seasons,
     monthIndex,
     bodyColorTable: [],
-    hidden,
-    showLabels: localStorage.getItem(SHOW_LABELS_KEY) === '1',
+    hidden: new Set(),
+    showLabels: false,
   };
 }
 
@@ -655,7 +643,6 @@ function renderToggleRow(contId, contName) {
   cb.addEventListener('change', () => {
     if (cb.checked) appState.hidden.delete(contId);
     else appState.hidden.add(contId);
-    persistHidden();
     applyVisibility();
   });
   const span = document.createElement('span');
@@ -664,16 +651,10 @@ function renderToggleRow(contId, contName) {
   return row;
 }
 
-function persistHidden() {
-  localStorage.setItem(HIDDEN_KEY,
-    JSON.stringify(Array.from(appState.hidden)));
-}
-
 // ---------------------------------------------------------------- season player
 //
 // Auto-runs Jan→Dec at MONTH_TICK_MS per month, looping. Play/pause button
 // toggles state; clicking a track dot scrubs without changing play state.
-// State (current month + playing flag) persists in localStorage.
 
 function recolorAtCurrentMonth() {
   if (!appState) return;
@@ -722,7 +703,6 @@ function monthFromTrackEvent(ev) {
 function setMonth(m) {
   if (!appState) return;
   appState.monthIndex = m;
-  localStorage.setItem(MONTH_KEY, String(m));
   recolorAtCurrentMonth();
 }
 
@@ -775,7 +755,6 @@ function attachSpacebarToggle() {
     }
     if (!appState) return;
     appState.playing = !appState.playing;
-    localStorage.setItem(PLAYING_KEY, appState.playing ? '1' : '0');
     syncToggleVisual();
     ev.preventDefault();
   });
@@ -801,13 +780,7 @@ function attachUiHideToggle() {
 }
 
 function setupSeasonPlayer() {
-  // Restore persisted state.
-  const storedMonth = localStorage.getItem(MONTH_KEY);
-  if (storedMonth !== null) {
-    const m = Math.max(0, Math.min(11, parseInt(storedMonth, 10) || 0));
-    appState.monthIndex = m;
-  }
-  appState.playing = localStorage.getItem(PLAYING_KEY) === '1'; // default false (paused)
+  appState.playing = false;
 
   buildPlayerDots();
   attachTrackScrub();
@@ -826,7 +799,6 @@ function setupSeasonPlayer() {
   if (playerToggle) {
     playerToggle.addEventListener('click', () => {
       appState.playing = !appState.playing;
-      localStorage.setItem(PLAYING_KEY, appState.playing ? '1' : '0');
       syncToggleVisual();
     });
   }
@@ -836,7 +808,6 @@ function setupSeasonPlayer() {
   function frame(now) {
     if (appState.playing && now - lastTick >= MONTH_TICK_MS) {
       appState.monthIndex = (appState.monthIndex + 1) % 12;
-      localStorage.setItem(MONTH_KEY, String(appState.monthIndex));
       recolorAtCurrentMonth();
       lastTick = now;
     } else if (!appState.playing) {
@@ -857,15 +828,6 @@ function syncToggleVisual() {
   if (playerSection) playerSection.dataset.state = playing ? 'playing' : 'paused';
 }
 
-function setupAdvancedDetails() {
-  if (!advancedDetails) return;
-  const open = localStorage.getItem(ADVANCED_OPEN_KEY) === '1';
-  advancedDetails.open = open;
-  advancedDetails.addEventListener('toggle', () => {
-    localStorage.setItem(ADVANCED_OPEN_KEY,
-      advancedDetails.open ? '1' : '0');
-  });
-}
 
 function applyVisibility() {
   if (!globeMesh) return;
@@ -954,13 +916,10 @@ async function main() {
 
   renderToggles();
   setupSeasonPlayer();
-  setupAdvancedDetails();
 
   toggleLabels.checked = appState.showLabels;
   toggleLabels.addEventListener('change', () => {
     appState.showLabels = toggleLabels.checked;
-    localStorage.setItem(SHOW_LABELS_KEY,
-      appState.showLabels ? '1' : '0');
   });
 
   try {
