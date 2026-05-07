@@ -274,9 +274,139 @@ html, body {
 }
 
 body.ui-hidden #hud-top,
-body.ui-hidden #hud {
+body.ui-hidden #hud,
+body.ui-hidden #download-panel {
   opacity: 0;
   pointer-events: none;
+}
+
+/* ---------------- Download panel (right-center, off-axis from HUDs) ----- */
+
+.download-panel {
+  position: fixed;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
+  width: 320px;
+  max-width: calc(100vw - 48px);
+  padding: 16px;
+  background: var(--hud-bg);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid var(--hud-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--hud-shadow);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: opacity 220ms ease;
+}
+
+.download-title {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.download-desc {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--text-dim);
+}
+
+.download-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.download-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--hud-border);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  text-decoration: none;
+  transition: background 140ms ease, border-color 140ms ease,
+              transform 100ms ease;
+  touch-action: manipulation;
+}
+
+.download-link:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.download-link:active { transform: scale(0.98); }
+
+.download-link:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.55);
+  outline-offset: 2px;
+}
+
+.download-logo {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.92);
+  object-fit: contain;
+  padding: 3px;
+}
+
+.download-link-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.download-link-platform {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.2px;
+}
+
+.download-link-action {
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+@media (max-width: 720px) {
+  .download-panel {
+    /* Sit directly under the player as a compact two-button row. The
+       previous bottom-anchored placement (60vh from bottom) floated the
+       panel into the middle of the globe — fixing it to just-under-player
+       puts it in the natural CTA spot and leaves the globe unobstructed.
+       Vertical real estate is too tight to keep the marketing text. */
+    top: calc(max(8px, env(safe-area-inset-top)) + 76px);
+    bottom: auto;
+    left: 8px;
+    right: 8px;
+    width: auto;
+    transform: none;
+    padding: 8px;
+    gap: 6px;
+  }
+  .download-title,
+  .download-desc { display: none; }
+  .download-links { flex-direction: row; }
+  .download-link {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 8px 10px;
+  }
+  .download-link-action { display: none; }
 }
 
 #hud > * + * {
