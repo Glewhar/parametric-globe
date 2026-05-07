@@ -5,23 +5,39 @@
   padding: 12px 14px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 10px;
 }
 
 .scenario-cats {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 6px;
+  justify-content: center;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  max-width: 100%;
 }
 
+.scenario-cats::-webkit-scrollbar { display: none; }
+
+/* Sub-scenario row: visually nested under the picked category. The leading
+   "↳" arrow + dashed inset background + smaller pill chips signal that
+   these are children of the selected category, not peers of it. */
 .scenario-intensities {
   display: flex;
+  align-items: center;
   gap: 6px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px dashed rgba(255, 255, 255, 0.12);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  padding-bottom: 2px;
+  max-width: 100%;
   opacity: 1;
   transform: translateY(0);
   transition: opacity 150ms ease, transform 150ms ease;
@@ -34,6 +50,18 @@
 .scenario-intensities.is-swapping {
   opacity: 0;
   transform: translateY(4px);
+}
+
+/* Leading "child of parent" indicator: corner-down-right arrow. Sits as the
+   first flex item before the chips. */
+.scenario-intensities::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  margin-right: 2px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='15 10 20 15 15 20'/><path d='M4 4v7a4 4 0 0 0 4 4h12'/></svg>") no-repeat center / contain;
+  opacity: 0.45;
 }
 
 /* Chips: translucent surface, square-ish corners, monochrome on hover/select */
@@ -92,11 +120,44 @@
   color: var(--text);
 }
 
+/* Intensity chips look like children of the parent category: pill-shaped,
+   smaller, more muted. Selected state still gets the strong fill so the
+   active intensity reads at a glance. */
+.scenario-chip.scenario-intensity {
+  min-height: 28px;
+  padding: 5px 11px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 999px;
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.14);
+  color: var(--text-dim);
+}
+
+.scenario-chip.scenario-intensity:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.26);
+  color: var(--text);
+}
+
+.scenario-chip.scenario-intensity[aria-pressed="true"] {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.36);
+  color: var(--text);
+  font-weight: 600;
+}
+
 @media (max-width: 720px) {
   .hud-scenarios { padding: 12px 12px; }
+  .scenario-cats { justify-content: flex-start; }
   .scenario-chip {
     min-height: 38px;
     padding: 9px 12px;
     font-size: 13px;
+  }
+  .scenario-chip.scenario-intensity {
+    min-height: 30px;
+    padding: 6px 11px;
+    font-size: 12px;
   }
 }

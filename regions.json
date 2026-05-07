@@ -1,15 +1,15 @@
 {
-  "svg_sha256": "47b047d5c1352292276ec42c36c5fa3928186550f6bef9e2d02a0651557b8a94",
-  "generated_utc": "2026-05-07T08:31:30+00:00",
-  "n_bodies": 927,
+  "svg_sha256": "2d900bfba2867758ffe5e665cd611d4189dbed68d3a9ef06ebf9c5debd7cb8fb",
+  "generated_utc": "2026-05-07T13:37:30+00:00",
+  "n_bodies": 933,
   "n_continents": 8,
   "n_regions": 139,
   "stats": {
-    "atlas_hits": 927,
+    "atlas_hits": 933,
     "misses": 0,
     "seam_wrap_recoveries": 3,
-    "n_land_bodies": 870,
-    "n_water_bodies": 57,
+    "n_land_bodies": 874,
+    "n_water_bodies": 59,
     "topography_grayscale_min": 0.0,
     "topography_grayscale_max": 1.0,
     "elevation_mm_min": 0.2,
@@ -84,7 +84,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 26,
+              "region_idx": 27,
               "elevation_mm": 2.2204,
               "centroid_lonlat": [
                 31.5599,
@@ -104,7 +104,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 27,
+              "region_idx": 28,
               "elevation_mm": 2.1435,
               "centroid_lonlat": [
                 34.2074,
@@ -124,7 +124,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 32,
+              "region_idx": 33,
               "elevation_mm": 1.9788,
               "centroid_lonlat": [
                 29.0686,
@@ -272,7 +272,7 @@
           "bodies": [
             {
               "biome_id": "light_forest_5",
-              "region_idx": 50,
+              "region_idx": 51,
               "elevation_mm": 2.0447,
               "centroid_lonlat": [
                 11.2501,
@@ -282,7 +282,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 51,
+              "region_idx": 52,
               "elevation_mm": 1.9129,
               "centroid_lonlat": [
                 14.619,
@@ -292,7 +292,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 54,
+              "region_idx": 55,
               "elevation_mm": 1.7373,
               "centroid_lonlat": [
                 26.0156,
@@ -302,7 +302,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 25,
+              "region_idx": 26,
               "elevation_mm": 1.6714,
               "centroid_lonlat": [
                 17.6947,
@@ -312,7 +312,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 31,
+              "region_idx": 32,
               "elevation_mm": 1.6714,
               "centroid_lonlat": [
                 22.6891,
@@ -322,7 +322,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 52,
+              "region_idx": 53,
               "elevation_mm": 1.5616,
               "centroid_lonlat": [
                 21.7965,
@@ -342,7 +342,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 29,
+              "region_idx": 30,
               "elevation_mm": 1.3969,
               "centroid_lonlat": [
                 15.8518,
@@ -352,7 +352,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 53,
+              "region_idx": 54,
               "elevation_mm": 1.1992,
               "centroid_lonlat": [
                 19.8632,
@@ -396,7 +396,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 19,
+              "region_idx": 20,
               "elevation_mm": 1.4518,
               "centroid_lonlat": [
                 -10.1406,
@@ -436,7 +436,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 23,
+              "region_idx": 24,
               "elevation_mm": 0.9357,
               "centroid_lonlat": [
                 -5.1266,
@@ -446,7 +446,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 24,
+              "region_idx": 25,
               "elevation_mm": 0.76,
               "centroid_lonlat": [
                 7.5294,
@@ -618,7 +618,7 @@
           "bodies": [
             {
               "biome_id": "light_forest_5",
-              "region_idx": 39,
+              "region_idx": 40,
               "elevation_mm": 1.858,
               "centroid_lonlat": [
                 36.5432,
@@ -1146,7 +1146,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 72,
+              "region_idx": 74,
               "elevation_mm": 0.8039,
               "centroid_lonlat": [
                 98.0125,
@@ -1206,7 +1206,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 88,
+              "region_idx": 90,
               "elevation_mm": 0.5184,
               "centroid_lonlat": [
                 83.5634,
@@ -1216,7 +1216,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 89,
+              "region_idx": 91,
               "elevation_mm": 0.5075,
               "centroid_lonlat": [
                 118.3911,
@@ -1236,7 +1236,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 82,
+              "region_idx": 84,
               "elevation_mm": 0.4196,
               "centroid_lonlat": [
                 114.1123,
@@ -1246,7 +1246,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 91,
+              "region_idx": 93,
               "elevation_mm": 0.4086,
               "centroid_lonlat": [
                 73.3066,
@@ -1256,7 +1256,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 97,
+              "region_idx": 99,
               "elevation_mm": 0.4086,
               "centroid_lonlat": [
                 69.2903,
@@ -1266,7 +1266,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 93,
+              "region_idx": 95,
               "elevation_mm": 0.3867,
               "centroid_lonlat": [
                 76.4482,
@@ -1360,7 +1360,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 20,
+              "region_idx": 21,
               "elevation_mm": 0.9247,
               "centroid_lonlat": [
                 109.9048,
@@ -1410,7 +1410,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 18,
+              "region_idx": 19,
               "elevation_mm": 0.6612,
               "centroid_lonlat": [
                 106.4608,
@@ -1440,7 +1440,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 17,
+              "region_idx": 18,
               "elevation_mm": 0.4525,
               "centroid_lonlat": [
                 92.307,
@@ -1802,7 +1802,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 10,
+              "region_idx": 11,
               "elevation_mm": 1.3529,
               "centroid_lonlat": [
                 130.5073,
@@ -1859,6 +1859,130 @@
                 50.3786
               ],
               "name": "Russian Far East 11"
+            }
+          ]
+        },
+        {
+          "id": "siberian_taiga_west",
+          "parent_id": "siberian_taiga",
+          "name": "Western Siberian taiga",
+          "kind": "forest",
+          "latitude_zone": "north",
+          "is_water": false,
+          "centroid_lonlat": [
+            82.7582,
+            58.9464
+          ],
+          "bodies": [
+            {
+              "biome_id": "forest_2",
+              "region_idx": 12,
+              "elevation_mm": 1.5286,
+              "centroid_lonlat": [
+                90.2116,
+                54.3089
+              ],
+              "name": "Western Siberian taiga 1"
+            },
+            {
+              "biome_id": "grassland_2",
+              "region_idx": 0,
+              "elevation_mm": 1.309,
+              "centroid_lonlat": [
+                92.0546,
+                54.8721
+              ],
+              "name": "Western Siberian taiga 3"
+            },
+            {
+              "biome_id": "light_forest_3",
+              "region_idx": 6,
+              "elevation_mm": 1.309,
+              "centroid_lonlat": [
+                91.5958,
+                64.946
+              ],
+              "name": "Western Siberian taiga 2"
+            },
+            {
+              "biome_id": "light_forest_5",
+              "region_idx": 48,
+              "elevation_mm": 0.9467,
+              "centroid_lonlat": [
+                92.492,
+                56.3558
+              ],
+              "name": "Western Siberian taiga 4"
+            },
+            {
+              "biome_id": "light_forest",
+              "region_idx": 0,
+              "elevation_mm": 0.8039,
+              "centroid_lonlat": [
+                80.5569,
+                56.381
+              ],
+              "name": "Western Siberian taiga 5"
+            },
+            {
+              "biome_id": "light_forest_5",
+              "region_idx": 2,
+              "elevation_mm": 0.7929,
+              "centroid_lonlat": [
+                86.218,
+                59.6783
+              ],
+              "name": "Western Siberian taiga 7"
+            },
+            {
+              "biome_id": "light_forest_5",
+              "region_idx": 3,
+              "elevation_mm": 0.7929,
+              "centroid_lonlat": [
+                82.5594,
+                56.2345
+              ],
+              "name": "Western Siberian taiga 6"
+            },
+            {
+              "biome_id": "light_forest_2",
+              "region_idx": 2,
+              "elevation_mm": 0.6722,
+              "centroid_lonlat": [
+                80.8625,
+                62.137
+              ],
+              "name": "Western Siberian taiga 8"
+            },
+            {
+              "biome_id": "light_forest_2",
+              "region_idx": 13,
+              "elevation_mm": 0.6612,
+              "centroid_lonlat": [
+                70.5302,
+                57.4038
+              ],
+              "name": "Western Siberian taiga 10"
+            },
+            {
+              "biome_id": "light_forest_5",
+              "region_idx": 1,
+              "elevation_mm": 0.6612,
+              "centroid_lonlat": [
+                69.4015,
+                59.5912
+              ],
+              "name": "Western Siberian taiga 9"
+            },
+            {
+              "biome_id": "alpine_meadow_3",
+              "region_idx": 1,
+              "elevation_mm": 0.3976,
+              "centroid_lonlat": [
+                73.8576,
+                66.5021
+              ],
+              "name": "Western Siberian taiga 11"
             }
           ]
         },
@@ -2000,7 +2124,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 9,
+              "region_idx": 10,
               "elevation_mm": 1.3529,
               "centroid_lonlat": [
                 130.0781,
@@ -2154,7 +2278,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 84,
+              "region_idx": 86,
               "elevation_mm": 0.3427,
               "centroid_lonlat": [
                 144.7754,
@@ -2164,7 +2288,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 83,
+              "region_idx": 85,
               "elevation_mm": 0.3208,
               "centroid_lonlat": [
                 142.0345,
@@ -2174,7 +2298,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 92,
+              "region_idx": 94,
               "elevation_mm": 0.3098,
               "centroid_lonlat": [
                 148.7306,
@@ -2184,7 +2308,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 94,
+              "region_idx": 96,
               "elevation_mm": 0.2659,
               "centroid_lonlat": [
                 153.1028,
@@ -2201,120 +2325,6 @@
                 72.5271
               ],
               "name": "Siberian Arctic (east) 10"
-            }
-          ]
-        },
-        {
-          "id": "siberian_taiga_west",
-          "parent_id": "siberian_taiga",
-          "name": "Western Siberian taiga",
-          "kind": "forest",
-          "latitude_zone": "north",
-          "is_water": false,
-          "centroid_lonlat": [
-            82.7631,
-            59.2036
-          ],
-          "bodies": [
-            {
-              "biome_id": "forest_2",
-              "region_idx": 12,
-              "elevation_mm": 1.5286,
-              "centroid_lonlat": [
-                90.2116,
-                54.3089
-              ],
-              "name": "Western Siberian taiga 1"
-            },
-            {
-              "biome_id": "grassland_2",
-              "region_idx": 0,
-              "elevation_mm": 1.309,
-              "centroid_lonlat": [
-                92.0546,
-                54.8721
-              ],
-              "name": "Western Siberian taiga 3"
-            },
-            {
-              "biome_id": "light_forest_3",
-              "region_idx": 6,
-              "elevation_mm": 1.309,
-              "centroid_lonlat": [
-                91.5958,
-                64.946
-              ],
-              "name": "Western Siberian taiga 2"
-            },
-            {
-              "biome_id": "light_forest_5",
-              "region_idx": 47,
-              "elevation_mm": 0.9467,
-              "centroid_lonlat": [
-                92.492,
-                56.3558
-              ],
-              "name": "Western Siberian taiga 4"
-            },
-            {
-              "biome_id": "light_forest",
-              "region_idx": 0,
-              "elevation_mm": 0.8039,
-              "centroid_lonlat": [
-                80.5569,
-                56.381
-              ],
-              "name": "Western Siberian taiga 5"
-            },
-            {
-              "biome_id": "light_forest_5",
-              "region_idx": 2,
-              "elevation_mm": 0.7929,
-              "centroid_lonlat": [
-                86.0681,
-                59.5379
-              ],
-              "name": "Western Siberian taiga 6"
-            },
-            {
-              "biome_id": "light_forest_2",
-              "region_idx": 2,
-              "elevation_mm": 0.6722,
-              "centroid_lonlat": [
-                80.8625,
-                62.137
-              ],
-              "name": "Western Siberian taiga 7"
-            },
-            {
-              "biome_id": "light_forest_2",
-              "region_idx": 13,
-              "elevation_mm": 0.6612,
-              "centroid_lonlat": [
-                70.5302,
-                57.4038
-              ],
-              "name": "Western Siberian taiga 9"
-            },
-            {
-              "biome_id": "light_forest_5",
-              "region_idx": 1,
-              "elevation_mm": 0.6612,
-              "centroid_lonlat": [
-                69.4015,
-                59.5912
-              ],
-              "name": "Western Siberian taiga 8"
-            },
-            {
-              "biome_id": "alpine_meadow_3",
-              "region_idx": 1,
-              "elevation_mm": 0.3976,
-              "centroid_lonlat": [
-                73.8576,
-                66.5021
-              ],
-              "name": "Western Siberian taiga 10"
             }
           ]
         },
@@ -2540,7 +2550,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 16,
+              "region_idx": 17,
               "elevation_mm": 0.9247,
               "centroid_lonlat": [
                 118.1211,
@@ -2862,7 +2872,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 28,
+              "region_idx": 29,
               "elevation_mm": 0.3647,
               "centroid_lonlat": [
                 106.549,
@@ -3492,7 +3502,7 @@
           "bodies": [
             {
               "biome_id": "light_forest_5",
-              "region_idx": 49,
+              "region_idx": 50,
               "elevation_mm": 1.5286,
               "centroid_lonlat": [
                 82.6173,
@@ -3888,8 +3898,8 @@
           "latitude_zone": "north",
           "is_water": false,
           "centroid_lonlat": [
-            66.1162,
-            50.9339
+            66.1204,
+            50.9349
           ],
           "bodies": [
             {
@@ -3917,8 +3927,8 @@
               "region_idx": 0,
               "elevation_mm": 0.8698,
               "centroid_lonlat": [
-                55.8377,
-                52.5144
+                55.8502,
+                52.5176
               ],
               "name": "Kazakh steppe 3"
             }
@@ -4080,7 +4090,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 105,
+              "region_idx": 107,
               "elevation_mm": 0.8808,
               "centroid_lonlat": [
                 -175.075,
@@ -4540,7 +4550,7 @@
           "bodies": [
             {
               "biome_id": "light_forest_5",
-              "region_idx": 4,
+              "region_idx": 5,
               "elevation_mm": 0.8698,
               "centroid_lonlat": [
                 -1.9236,
@@ -4590,7 +4600,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 7,
+              "region_idx": 8,
               "elevation_mm": 0.7271,
               "centroid_lonlat": [
                 -6.8647,
@@ -4660,7 +4670,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 11,
+              "region_idx": 12,
               "elevation_mm": 0.5294,
               "centroid_lonlat": [
                 1.4119,
@@ -4744,7 +4754,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 73,
+              "region_idx": 75,
               "elevation_mm": 1.0784,
               "centroid_lonlat": [
                 17.9297,
@@ -4794,7 +4804,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 103,
+              "region_idx": 105,
               "elevation_mm": 0.3976,
               "centroid_lonlat": [
                 54.8437,
@@ -5066,7 +5076,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 5,
+              "region_idx": 6,
               "elevation_mm": 0.9467,
               "centroid_lonlat": [
                 16.0503,
@@ -6024,7 +6034,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 98,
+              "region_idx": 100,
               "elevation_mm": 0.9796,
               "centroid_lonlat": [
                 -91.9285,
@@ -6074,7 +6084,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 70,
+              "region_idx": 72,
               "elevation_mm": 0.8918,
               "centroid_lonlat": [
                 -77.0276,
@@ -6144,7 +6154,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 90,
+              "region_idx": 92,
               "elevation_mm": 0.771,
               "centroid_lonlat": [
                 -88.2366,
@@ -6154,7 +6164,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 81,
+              "region_idx": 83,
               "elevation_mm": 0.738,
               "centroid_lonlat": [
                 -98.5611,
@@ -6164,7 +6174,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 86,
+              "region_idx": 88,
               "elevation_mm": 0.7271,
               "centroid_lonlat": [
                 -106.2093,
@@ -6184,7 +6194,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 101,
+              "region_idx": 103,
               "elevation_mm": 0.7161,
               "centroid_lonlat": [
                 -90.8741,
@@ -6194,7 +6204,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 75,
+              "region_idx": 77,
               "elevation_mm": 0.6722,
               "centroid_lonlat": [
                 -99.9751,
@@ -6204,7 +6214,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 102,
+              "region_idx": 104,
               "elevation_mm": 0.6502,
               "centroid_lonlat": [
                 -88.1267,
@@ -6254,7 +6264,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 87,
+              "region_idx": 89,
               "elevation_mm": 0.5404,
               "centroid_lonlat": [
                 -98.9811,
@@ -6264,7 +6274,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 77,
+              "region_idx": 79,
               "elevation_mm": 0.5184,
               "centroid_lonlat": [
                 -94.7946,
@@ -6274,7 +6284,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 80,
+              "region_idx": 82,
               "elevation_mm": 0.5075,
               "centroid_lonlat": [
                 -107.2955,
@@ -6294,7 +6304,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 79,
+              "region_idx": 81,
               "elevation_mm": 0.3976,
               "centroid_lonlat": [
                 -113.7059,
@@ -6304,7 +6314,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 100,
+              "region_idx": 102,
               "elevation_mm": 0.3647,
               "centroid_lonlat": [
                 -129.9854,
@@ -6314,7 +6324,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 85,
+              "region_idx": 87,
               "elevation_mm": 0.3208,
               "centroid_lonlat": [
                 -123.444,
@@ -6334,7 +6344,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 74,
+              "region_idx": 76,
               "elevation_mm": 0.2988,
               "centroid_lonlat": [
                 -102.4337,
@@ -6344,7 +6354,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 76,
+              "region_idx": 78,
               "elevation_mm": 0.2659,
               "centroid_lonlat": [
                 -110.3854,
@@ -6418,7 +6428,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 78,
+              "region_idx": 80,
               "elevation_mm": 1.9459,
               "centroid_lonlat": [
                 -74.6007,
@@ -6448,7 +6458,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 96,
+              "region_idx": 98,
               "elevation_mm": 1.7922,
               "centroid_lonlat": [
                 -70.66,
@@ -6458,7 +6468,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 99,
+              "region_idx": 101,
               "elevation_mm": 1.7922,
               "centroid_lonlat": [
                 -68.5393,
@@ -6468,7 +6478,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 104,
+              "region_idx": 106,
               "elevation_mm": 1.7373,
               "centroid_lonlat": [
                 -63.0688,
@@ -6548,7 +6558,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 108,
+              "region_idx": 110,
               "elevation_mm": 1.0345,
               "centroid_lonlat": [
                 -69.7831,
@@ -6588,7 +6598,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 107,
+              "region_idx": 109,
               "elevation_mm": 0.9247,
               "centroid_lonlat": [
                 -47.8081,
@@ -6618,7 +6628,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 71,
+              "region_idx": 73,
               "elevation_mm": 0.8369,
               "centroid_lonlat": [
                 -46.6318,
@@ -6648,7 +6658,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 68,
+              "region_idx": 70,
               "elevation_mm": 0.5514,
               "centroid_lonlat": [
                 -28.3047,
@@ -6688,7 +6698,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 69,
+              "region_idx": 71,
               "elevation_mm": 0.2439,
               "centroid_lonlat": [
                 -37.9553,
@@ -6832,7 +6842,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 13,
+              "region_idx": 14,
               "elevation_mm": 0.9467,
               "centroid_lonlat": [
                 -55.3553,
@@ -6946,7 +6956,7 @@
           "bodies": [
             {
               "biome_id": "light_forest_5",
-              "region_idx": 46,
+              "region_idx": 47,
               "elevation_mm": 1.4518,
               "centroid_lonlat": [
                 -104.0392,
@@ -6956,7 +6966,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 6,
+              "region_idx": 7,
               "elevation_mm": 1.32,
               "centroid_lonlat": [
                 -103.6358,
@@ -7006,7 +7016,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 8,
+              "region_idx": 9,
               "elevation_mm": 1.1553,
               "centroid_lonlat": [
                 -92.9455,
@@ -7016,7 +7026,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 48,
+              "region_idx": 49,
               "elevation_mm": 1.1443,
               "centroid_lonlat": [
                 -100.5223,
@@ -7076,7 +7086,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 106,
+              "region_idx": 108,
               "elevation_mm": 0.4745,
               "centroid_lonlat": [
                 -75.9723,
@@ -7116,7 +7126,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 109,
+              "region_idx": 111,
               "elevation_mm": 0.3318,
               "centroid_lonlat": [
                 -76.5712,
@@ -7200,7 +7210,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 12,
+              "region_idx": 13,
               "elevation_mm": 1.1553,
               "centroid_lonlat": [
                 -76.1079,
@@ -7230,7 +7240,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 14,
+              "region_idx": 15,
               "elevation_mm": 1.1443,
               "centroid_lonlat": [
                 -68.0403,
@@ -7290,7 +7300,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 15,
+              "region_idx": 16,
               "elevation_mm": 0.76,
               "centroid_lonlat": [
                 -85.0281,
@@ -7454,7 +7464,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 95,
+              "region_idx": 97,
               "elevation_mm": 0.2878,
               "centroid_lonlat": [
                 -154.8633,
@@ -7548,7 +7558,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 3,
+              "region_idx": 4,
               "elevation_mm": 1.7592,
               "centroid_lonlat": [
                 -111.9377,
@@ -7568,7 +7578,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 45,
+              "region_idx": 46,
               "elevation_mm": 1.4957,
               "centroid_lonlat": [
                 -118.8442,
@@ -8588,7 +8598,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 43,
+              "region_idx": 44,
               "elevation_mm": 2.0008,
               "centroid_lonlat": [
                 -45.2477,
@@ -8608,7 +8618,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 57,
+              "region_idx": 58,
               "elevation_mm": 1.9788,
               "centroid_lonlat": [
                 -49.3377,
@@ -8628,7 +8638,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 41,
+              "region_idx": 42,
               "elevation_mm": 1.869,
               "centroid_lonlat": [
                 -41.2008,
@@ -8638,7 +8648,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 44,
+              "region_idx": 45,
               "elevation_mm": 1.8251,
               "centroid_lonlat": [
                 -50.3114,
@@ -8658,7 +8668,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 36,
+              "region_idx": 37,
               "elevation_mm": 1.2761,
               "centroid_lonlat": [
                 -54.8386,
@@ -8668,7 +8678,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 38,
+              "region_idx": 39,
               "elevation_mm": 1.2541,
               "centroid_lonlat": [
                 -51.9338,
@@ -8732,7 +8742,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 40,
+              "region_idx": 41,
               "elevation_mm": 1.0235,
               "centroid_lonlat": [
                 -61.9489,
@@ -8752,7 +8762,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 55,
+              "region_idx": 56,
               "elevation_mm": 0.9137,
               "centroid_lonlat": [
                 -64.7027,
@@ -8930,7 +8940,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 21,
+              "region_idx": 22,
               "elevation_mm": 0.7271,
               "centroid_lonlat": [
                 -67.9629,
@@ -9048,7 +9058,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 30,
+              "region_idx": 31,
               "elevation_mm": 0.5184,
               "centroid_lonlat": [
                 -43.2848,
@@ -9092,7 +9102,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 56,
+              "region_idx": 57,
               "elevation_mm": 1.1004,
               "centroid_lonlat": [
                 -59.0631,
@@ -9102,7 +9112,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 42,
+              "region_idx": 43,
               "elevation_mm": 1.0125,
               "centroid_lonlat": [
                 -57.126,
@@ -9136,7 +9146,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 22,
+              "region_idx": 23,
               "elevation_mm": 1.0125,
               "centroid_lonlat": [
                 -61.5323,
@@ -9430,7 +9440,7 @@
           "bodies": [
             {
               "biome_id": "light_forest_5",
-              "region_idx": 35,
+              "region_idx": 36,
               "elevation_mm": 1.0455,
               "centroid_lonlat": [
                 -59.4259,
@@ -9440,7 +9450,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 33,
+              "region_idx": 34,
               "elevation_mm": 0.9906,
               "centroid_lonlat": [
                 -46.0451,
@@ -9450,7 +9460,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 34,
+              "region_idx": 35,
               "elevation_mm": 0.9906,
               "centroid_lonlat": [
                 -49.5303,
@@ -9752,7 +9762,7 @@
             },
             {
               "biome_id": "light_forest_5",
-              "region_idx": 37,
+              "region_idx": 38,
               "elevation_mm": 0.2988,
               "centroid_lonlat": [
                 138.1959,
@@ -10104,17 +10114,17 @@
           "latitude_zone": "antarctic",
           "is_water": false,
           "centroid_lonlat": [
-            89.9922,
-            -71.6217
+            92.3447,
+            -71.3745
           ],
           "bodies": [
             {
               "biome_id": "ice",
-              "region_idx": 12,
+              "region_idx": 25,
               "elevation_mm": 2.451,
               "centroid_lonlat": [
-                28.181,
-                -86.7584
+                91.6995,
+                -80.0856
               ],
               "name": "East Antarctic ice sheet 1"
             },
@@ -10130,7 +10140,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 112,
+              "region_idx": 114,
               "elevation_mm": 2.2753,
               "centroid_lonlat": [
                 98.7891,
@@ -10160,7 +10170,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 115,
+              "region_idx": 117,
               "elevation_mm": 2.2424,
               "centroid_lonlat": [
                 48.6914,
@@ -10200,7 +10210,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 123,
+              "region_idx": 125,
               "elevation_mm": 2.1655,
               "centroid_lonlat": [
                 168.2227,
@@ -10220,7 +10230,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 113,
+              "region_idx": 115,
               "elevation_mm": 1.8031,
               "centroid_lonlat": [
                 110.3897,
@@ -10230,7 +10240,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 111,
+              "region_idx": 113,
               "elevation_mm": 1.7922,
               "centroid_lonlat": [
                 58.0037,
@@ -10240,7 +10250,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 136,
+              "region_idx": 138,
               "elevation_mm": 1.7153,
               "centroid_lonlat": [
                 166.2846,
@@ -10250,7 +10260,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 110,
+              "region_idx": 112,
               "elevation_mm": 1.6933,
               "centroid_lonlat": [
                 138.3398,
@@ -10260,7 +10270,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 119,
+              "region_idx": 121,
               "elevation_mm": 1.6824,
               "centroid_lonlat": [
                 35.283,
@@ -10270,7 +10280,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 117,
+              "region_idx": 119,
               "elevation_mm": 1.5945,
               "centroid_lonlat": [
                 152.2256,
@@ -10280,7 +10290,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 116,
+              "region_idx": 118,
               "elevation_mm": 1.5616,
               "centroid_lonlat": [
                 150.4678,
@@ -10290,7 +10300,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 121,
+              "region_idx": 123,
               "elevation_mm": 1.1553,
               "centroid_lonlat": [
                 11.1863,
@@ -10300,7 +10310,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 120,
+              "region_idx": 122,
               "elevation_mm": 1.1443,
               "centroid_lonlat": [
                 9.2372,
@@ -10310,7 +10320,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 122,
+              "region_idx": 124,
               "elevation_mm": 1.1114,
               "centroid_lonlat": [
                 21.1297,
@@ -10320,7 +10330,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 114,
+              "region_idx": 116,
               "elevation_mm": 1.0455,
               "centroid_lonlat": [
                 119.5303,
@@ -10388,19 +10398,29 @@
           "latitude_zone": "antarctic",
           "is_water": false,
           "centroid_lonlat": [
-            -79.4678,
-            -78.8343
+            -82.0101,
+            -79.0531
           ],
           "bodies": [
             {
+              "biome_id": "ice",
+              "region_idx": 12,
+              "elevation_mm": 2.451,
+              "centroid_lonlat": [
+                -78.5462,
+                -83.038
+              ],
+              "name": "West Antarctic ice sheet 1"
+            },
+            {
               "biome_id": "tundra_2",
-              "region_idx": 130,
+              "region_idx": 132,
               "elevation_mm": 1.8361,
               "centroid_lonlat": [
                 -17.0465,
                 -76.4439
               ],
-              "name": "West Antarctic ice sheet 1"
+              "name": "West Antarctic ice sheet 2"
             },
             {
               "biome_id": "tundra_2",
@@ -10410,17 +10430,17 @@
                 -13.8515,
                 -74.7928
               ],
-              "name": "West Antarctic ice sheet 2"
+              "name": "West Antarctic ice sheet 3"
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 127,
+              "region_idx": 129,
               "elevation_mm": 1.5067,
               "centroid_lonlat": [
                 -88.8122,
                 -74.2141
               ],
-              "name": "West Antarctic ice sheet 3"
+              "name": "West Antarctic ice sheet 4"
             },
             {
               "biome_id": "ice",
@@ -10430,127 +10450,147 @@
                 -46.1663,
                 -80.5865
               ],
-              "name": "West Antarctic ice sheet 4"
+              "name": "West Antarctic ice sheet 5"
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 64,
+              "region_idx": 65,
               "elevation_mm": 1.4847,
               "centroid_lonlat": [
                 -32.8065,
                 -79.512
               ],
-              "name": "West Antarctic ice sheet 5"
+              "name": "West Antarctic ice sheet 6"
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 125,
+              "region_idx": 127,
               "elevation_mm": 1.4847,
               "centroid_lonlat": [
                 -9.534,
                 -72.7065
               ],
-              "name": "West Antarctic ice sheet 6"
+              "name": "West Antarctic ice sheet 7"
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 129,
+              "region_idx": 131,
               "elevation_mm": 1.2871,
               "centroid_lonlat": [
                 -111.2192,
                 -75.6184
               ],
-              "name": "West Antarctic ice sheet 7"
+              "name": "West Antarctic ice sheet 8"
             },
             {
               "biome_id": "tundra_2",
               "region_idx": 61,
               "elevation_mm": 1.1992,
               "centroid_lonlat": [
-                -144.8351,
-                -77.5124
+                -144.6248,
+                -77.1622
               ],
-              "name": "West Antarctic ice sheet 8"
+              "name": "West Antarctic ice sheet 10"
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 66,
+              "region_idx": 62,
               "elevation_mm": 1.1992,
               "centroid_lonlat": [
-                -43.7049,
-                -80.6072
+                -144.9802,
+                -77.8007
               ],
               "name": "West Antarctic ice sheet 9"
             },
             {
               "biome_id": "tundra_2",
               "region_idx": 67,
-              "elevation_mm": 1.0894,
+              "elevation_mm": 1.1992,
               "centroid_lonlat": [
-                -63.8292,
-                -83.3975
-              ],
-              "name": "West Antarctic ice sheet 10"
-            },
-            {
-              "biome_id": "tundra_2",
-              "region_idx": 131,
-              "elevation_mm": 1.0345,
-              "centroid_lonlat": [
-                -79.9963,
-                -79.6923
+                -43.7049,
+                -80.6072
               ],
               "name": "West Antarctic ice sheet 11"
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 63,
-              "elevation_mm": 0.9906,
+              "region_idx": 68,
+              "elevation_mm": 1.0894,
               "centroid_lonlat": [
-                -75.91,
-                -79.0631
+                -63.8292,
+                -83.3975
               ],
               "name": "West Antarctic ice sheet 12"
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 65,
-              "elevation_mm": 0.9796,
+              "region_idx": 133,
+              "elevation_mm": 1.0345,
               "centroid_lonlat": [
-                -49.3691,
-                -81.1515
+                -79.9963,
+                -79.6923
               ],
               "name": "West Antarctic ice sheet 13"
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 126,
-              "elevation_mm": 0.9357,
+              "region_idx": 64,
+              "elevation_mm": 0.9906,
               "centroid_lonlat": [
-                -99.5973,
-                -74.1028
-              ],
-              "name": "West Antarctic ice sheet 14"
-            },
-            {
-              "biome_id": "tundra_2",
-              "region_idx": 134,
-              "elevation_mm": 0.8918,
-              "centroid_lonlat": [
-                -46.888,
-                -81.6944
+                -75.8086,
+                -78.9932
               ],
               "name": "West Antarctic ice sheet 15"
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 62,
+              "region_idx": 69,
+              "elevation_mm": 0.9906,
+              "centroid_lonlat": [
+                -76.2047,
+                -81.3357
+              ],
+              "name": "West Antarctic ice sheet 14"
+            },
+            {
+              "biome_id": "tundra_2",
+              "region_idx": 66,
+              "elevation_mm": 0.9796,
+              "centroid_lonlat": [
+                -49.3691,
+                -81.1515
+              ],
+              "name": "West Antarctic ice sheet 16"
+            },
+            {
+              "biome_id": "tundra_2",
+              "region_idx": 128,
+              "elevation_mm": 0.9357,
+              "centroid_lonlat": [
+                -99.5973,
+                -74.1028
+              ],
+              "name": "West Antarctic ice sheet 17"
+            },
+            {
+              "biome_id": "tundra_2",
+              "region_idx": 136,
+              "elevation_mm": 0.8918,
+              "centroid_lonlat": [
+                -46.888,
+                -81.6944
+              ],
+              "name": "West Antarctic ice sheet 18"
+            },
+            {
+              "biome_id": "tundra_2",
+              "region_idx": 63,
               "elevation_mm": 0.8369,
               "centroid_lonlat": [
                 -156.3233,
                 -78.8376
               ],
-              "name": "West Antarctic ice sheet 16"
+              "name": "West Antarctic ice sheet 19"
             },
             {
               "biome_id": "tundra_2",
@@ -10560,47 +10600,47 @@
                 -62.6457,
                 -76.223
               ],
-              "name": "West Antarctic ice sheet 17"
+              "name": "West Antarctic ice sheet 20"
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 137,
+              "region_idx": 139,
               "elevation_mm": 0.6173,
               "centroid_lonlat": [
                 -151.9962,
                 -84.4952
               ],
-              "name": "West Antarctic ice sheet 18"
+              "name": "West Antarctic ice sheet 21"
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 135,
+              "region_idx": 137,
               "elevation_mm": 0.4855,
               "centroid_lonlat": [
                 -151.9971,
                 -82.9413
               ],
-              "name": "West Antarctic ice sheet 19"
+              "name": "West Antarctic ice sheet 22"
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 132,
+              "region_idx": 134,
               "elevation_mm": 0.4086,
               "centroid_lonlat": [
                 -161.9908,
                 -80.2459
               ],
-              "name": "West Antarctic ice sheet 20"
+              "name": "West Antarctic ice sheet 23"
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 133,
+              "region_idx": 135,
               "elevation_mm": 0.2,
               "centroid_lonlat": [
                 -60.3042,
                 -81.6825
               ],
-              "name": "West Antarctic ice sheet 21"
+              "name": "West Antarctic ice sheet 24"
             }
           ]
         },
@@ -10618,7 +10658,7 @@
           "bodies": [
             {
               "biome_id": "tundra_2",
-              "region_idx": 118,
+              "region_idx": 120,
               "elevation_mm": 2.2424,
               "centroid_lonlat": [
                 -62.5914,
@@ -10628,7 +10668,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 128,
+              "region_idx": 130,
               "elevation_mm": 1.5835,
               "centroid_lonlat": [
                 -60.6659,
@@ -10678,7 +10718,7 @@
             },
             {
               "biome_id": "tundra_2",
-              "region_idx": 124,
+              "region_idx": 126,
               "elevation_mm": 0.9467,
               "centroid_lonlat": [
                 -70.1471,
@@ -10702,8 +10742,8 @@
           "latitude_zone": "temperate",
           "is_water": true,
           "centroid_lonlat": [
-            13.264,
-            12.0525
+            13.1745,
+            11.7027
           ],
           "bodies": [
             {
@@ -10714,7 +10754,7 @@
                 36.7468,
                 35.3354
               ],
-              "name": "Shallow ocean 29"
+              "name": "Shallow ocean 30"
             },
             {
               "biome_id": "alpine_meadow_3",
@@ -10724,7 +10764,7 @@
                 126.5557,
                 11.8015
               ],
-              "name": "Shallow ocean 47"
+              "name": "Shallow ocean 49"
             },
             {
               "biome_id": "shallow_ocean",
@@ -10741,10 +10781,10 @@
               "region_idx": 1,
               "elevation_mm": 0.05,
               "centroid_lonlat": [
-                -54.3329,
-                37.7101
+                -72.1119,
+                33.0118
               ],
-              "name": "Shallow ocean 17"
+              "name": "Shallow ocean 18"
             },
             {
               "biome_id": "shallow_ocean",
@@ -10764,7 +10804,7 @@
                 -24.4012,
                 70.7467
               ],
-              "name": "Shallow ocean 21"
+              "name": "Shallow ocean 22"
             },
             {
               "biome_id": "shallow_ocean",
@@ -10814,7 +10854,7 @@
                 135.6834,
                 11.4092
               ],
-              "name": "Shallow ocean 49"
+              "name": "Shallow ocean 51"
             },
             {
               "biome_id": "shallow_ocean",
@@ -10824,7 +10864,7 @@
                 20.4091,
                 58.3273
               ],
-              "name": "Shallow ocean 25"
+              "name": "Shallow ocean 26"
             },
             {
               "biome_id": "shallow_ocean",
@@ -10844,7 +10884,7 @@
                 32.613,
                 60.6004
               ],
-              "name": "Shallow ocean 26"
+              "name": "Shallow ocean 27"
             },
             {
               "biome_id": "shallow_ocean",
@@ -10854,7 +10894,7 @@
                 111.226,
                 53.657
               ],
-              "name": "Shallow ocean 46"
+              "name": "Shallow ocean 48"
             },
             {
               "biome_id": "shallow_ocean",
@@ -10884,7 +10924,7 @@
                 36.245,
                 42.6198
               ],
-              "name": "Shallow ocean 28"
+              "name": "Shallow ocean 29"
             },
             {
               "biome_id": "shallow_ocean",
@@ -10894,7 +10934,7 @@
                 17.3024,
                 37.0779
               ],
-              "name": "Shallow ocean 24"
+              "name": "Shallow ocean 25"
             },
             {
               "biome_id": "shallow_ocean",
@@ -10934,7 +10974,7 @@
                 40.0082,
                 19.6839
               ],
-              "name": "Shallow ocean 30"
+              "name": "Shallow ocean 31"
             },
             {
               "biome_id": "shallow_ocean",
@@ -10944,7 +10984,7 @@
                 43.8535,
                 -10.8386
               ],
-              "name": "Shallow ocean 32"
+              "name": "Shallow ocean 33"
             },
             {
               "biome_id": "shallow_ocean",
@@ -10954,7 +10994,7 @@
                 96.622,
                 8.5278
               ],
-              "name": "Shallow ocean 45"
+              "name": "Shallow ocean 46"
             },
             {
               "biome_id": "shallow_ocean",
@@ -10964,7 +11004,7 @@
                 127.5623,
                 12.7642
               ],
-              "name": "Shallow ocean 48"
+              "name": "Shallow ocean 50"
             },
             {
               "biome_id": "shallow_ocean",
@@ -10974,7 +11014,7 @@
                 34.1671,
                 -1.7512
               ],
-              "name": "Shallow ocean 27"
+              "name": "Shallow ocean 28"
             },
             {
               "biome_id": "shallow_ocean",
@@ -10994,7 +11034,7 @@
                 156.7026,
                 -32.1353
               ],
-              "name": "Shallow ocean 52"
+              "name": "Shallow ocean 54"
             },
             {
               "biome_id": "shallow_ocean",
@@ -11004,7 +11044,7 @@
                 140.2812,
                 -37.8256
               ],
-              "name": "Shallow ocean 50"
+              "name": "Shallow ocean 52"
             },
             {
               "biome_id": "shallow_ocean",
@@ -11014,7 +11054,7 @@
                 175.0631,
                 -46.9142
               ],
-              "name": "Shallow ocean 55"
+              "name": "Shallow ocean 57"
             },
             {
               "biome_id": "shallow_ocean",
@@ -11024,7 +11064,7 @@
                 155.0565,
                 -35.2104
               ],
-              "name": "Shallow ocean 51"
+              "name": "Shallow ocean 53"
             },
             {
               "biome_id": "shallow_ocean",
@@ -11041,10 +11081,10 @@
               "region_idx": 31,
               "elevation_mm": 0.05,
               "centroid_lonlat": [
-                49.3073,
-                -80.2739
+                -74.6305,
+                -77.6153
               ],
-              "name": "Shallow ocean 35"
+              "name": "Shallow ocean 17"
             },
             {
               "biome_id": "shallow_ocean",
@@ -11054,7 +11094,7 @@
                 -4.7461,
                 35.4206
               ],
-              "name": "Shallow ocean 22"
+              "name": "Shallow ocean 23"
             },
             {
               "biome_id": "shallow_ocean",
@@ -11064,7 +11104,7 @@
                 43.9245,
                 13.295
               ],
-              "name": "Shallow ocean 33"
+              "name": "Shallow ocean 34"
             },
             {
               "biome_id": "shallow_ocean",
@@ -11074,7 +11114,7 @@
                 -3.1188,
                 35.3049
               ],
-              "name": "Shallow ocean 23"
+              "name": "Shallow ocean 24"
             },
             {
               "biome_id": "shallow_ocean",
@@ -11104,7 +11144,7 @@
                 179.7364,
                 52.2198
               ],
-              "name": "Shallow ocean 57"
+              "name": "Shallow ocean 59"
             },
             {
               "biome_id": "shallow_ocean",
@@ -11134,7 +11174,7 @@
                 73.7659,
                 -6.7106
               ],
-              "name": "Shallow ocean 43"
+              "name": "Shallow ocean 44"
             },
             {
               "biome_id": "shallow_ocean",
@@ -11144,7 +11184,7 @@
                 62.4185,
                 -13.2682
               ],
-              "name": "Shallow ocean 41"
+              "name": "Shallow ocean 42"
             },
             {
               "biome_id": "shallow_ocean",
@@ -11154,7 +11194,7 @@
                 48.5156,
                 -9.9399
               ],
-              "name": "Shallow ocean 34"
+              "name": "Shallow ocean 35"
             },
             {
               "biome_id": "shallow_ocean",
@@ -11174,7 +11214,7 @@
                 170.3133,
                 -19.1542
               ],
-              "name": "Shallow ocean 54"
+              "name": "Shallow ocean 56"
             },
             {
               "biome_id": "shallow_ocean",
@@ -11184,7 +11224,7 @@
                 179.5103,
                 -18.6064
               ],
-              "name": "Shallow ocean 56"
+              "name": "Shallow ocean 58"
             },
             {
               "biome_id": "shallow_ocean",
@@ -11194,7 +11234,7 @@
                 162.7777,
                 -20.7181
               ],
-              "name": "Shallow ocean 53"
+              "name": "Shallow ocean 55"
             },
             {
               "biome_id": "shallow_ocean",
@@ -11204,7 +11244,7 @@
                 -35.3321,
                 -20.7836
               ],
-              "name": "Shallow ocean 20"
+              "name": "Shallow ocean 21"
             },
             {
               "biome_id": "shallow_ocean",
@@ -11224,7 +11264,7 @@
                 41.3084,
                 -22.2291
               ],
-              "name": "Shallow ocean 31"
+              "name": "Shallow ocean 32"
             },
             {
               "biome_id": "shallow_ocean",
@@ -11234,7 +11274,7 @@
                 71.785,
                 -49.3734
               ],
-              "name": "Shallow ocean 42"
+              "name": "Shallow ocean 43"
             },
             {
               "biome_id": "shallow_ocean",
@@ -11254,7 +11294,7 @@
                 -39.7315,
                 -53.1672
               ],
-              "name": "Shallow ocean 19"
+              "name": "Shallow ocean 20"
             },
             {
               "biome_id": "shallow_ocean",
@@ -11264,7 +11304,7 @@
                 75.1965,
                 -54.014
               ],
-              "name": "Shallow ocean 44"
+              "name": "Shallow ocean 45"
             },
             {
               "biome_id": "shallow_ocean",
@@ -11274,7 +11314,27 @@
                 -43.454,
                 -61.9618
               ],
-              "name": "Shallow ocean 18"
+              "name": "Shallow ocean 19"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 55,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                61.2269,
+                80.2195
+              ],
+              "name": "Shallow ocean 41"
+            },
+            {
+              "biome_id": "shallow_ocean",
+              "region_idx": 56,
+              "elevation_mm": 0.05,
+              "centroid_lonlat": [
+                101.7359,
+                -74.7136
+              ],
+              "name": "Shallow ocean 47"
             }
           ]
         }

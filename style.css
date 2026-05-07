@@ -213,12 +213,18 @@ html, body {
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.45);
 }
 
-.player-hint {
+.player-hints {
   flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  user-select: none;
+}
+
+.player-hint {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  user-select: none;
 }
 
 .player-kbd {
@@ -248,14 +254,29 @@ html, body {
 
 #hud {
   position: fixed;
-  left: 24px;
+  left: 50%;
+  transform: translateX(-50%);
   bottom: 24px;
-  width: min(420px, calc(100vw - 48px));
+  width: min(720px, calc(100vw - 32px));
   max-height: calc(100vh - 160px);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   font-size: 14px;
+}
+
+/* "Hide UI" mode (toggled by Enter on desktop). Fades the HUD out so the
+   user can study the globe without overlays. Pointer events drop too so
+   nothing under the cursor accidentally activates an invisible chip. */
+#hud-top,
+#hud {
+  transition: opacity 220ms ease;
+}
+
+body.ui-hidden #hud-top,
+body.ui-hidden #hud {
+  opacity: 0;
+  pointer-events: none;
 }
 
 #hud > * + * {
@@ -420,13 +441,14 @@ html, body {
   .player-btn { width: 52px; height: 52px; border-radius: 12px; }
   .player-btn .player-icon { width: 22px; height: 22px; }
   .player-track { height: 28px; }
-  .player-hint { display: none; } /* no keyboards on phones */
+  .player-hints { display: none; } /* no keyboards on phones */
 
   #hud {
     left: 8px;
     right: 8px;
     bottom: max(8px, env(safe-area-inset-bottom));
     width: auto;
+    transform: none;
     max-height: 60vh;
     border-radius: var(--radius-lg);
   }

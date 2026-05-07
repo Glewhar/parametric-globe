@@ -151,10 +151,16 @@ function buildState(regionsCfg, biomeColors, seasons) {
     hidden = new Set();
   }
 
-  // Default month index = May (0-based 4). The seasons artifact records the
-  // master month it was built from; if that's a different month we still want
-  // May preselected per UX spec.
-  const monthIndex = 4;
+  // Default month index follows the build's master_month so picking a month
+  // in regenerate.bat carries through to the viewer. Falls back to May (4)
+  // if seasons.json is missing the field or names an unknown month.
+  const monthIndex = (() => {
+    const name = seasons?.master_month;
+    if (!name) return 4;
+    const idx = MONTH_NAMES.findIndex(
+      m => m.toLowerCase() === String(name).toLowerCase());
+    return idx >= 0 ? idx : 4;
+  })();
 
   return {
     continents,
@@ -775,6 +781,25 @@ function attachSpacebarToggle() {
   });
 }
 
+// H toggles `body.ui-hidden`, which fades the top + bottom HUD out so the
+// user can study the globe unobstructed. H (vs. Enter/Space) doesn't
+// activate a focused button, so it works even right after the user clicks
+// a chip and the chip keeps focus. Still skipped inside text inputs so
+// the user can type "h" normally.
+function attachUiHideToggle() {
+  document.addEventListener('keydown', (ev) => {
+    if (ev.key !== 'h' && ev.key !== 'H') return;
+    if (ev.ctrlKey || ev.metaKey || ev.altKey) return;
+    const t = ev.target;
+    if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' ||
+              t.isContentEditable)) {
+      return;
+    }
+    document.body.classList.toggle('ui-hidden');
+    ev.preventDefault();
+  });
+}
+
 function setupSeasonPlayer() {
   // Restore persisted state.
   const storedMonth = localStorage.getItem(MONTH_KEY);
@@ -787,6 +812,7 @@ function setupSeasonPlayer() {
   buildPlayerDots();
   attachTrackScrub();
   attachSpacebarToggle();
+  attachUiHideToggle();
   recolorAtCurrentMonth();
   syncToggleVisual();
 
